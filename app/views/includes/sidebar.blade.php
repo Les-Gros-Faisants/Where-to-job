@@ -1,22 +1,30 @@
 <!-- sidebar nav -->
-<div class="ui red vertical demo sidebar menu">
-  <a class="item">
-    <i class="home icon"></i>
-    Home
-  </a>
-  <a class="active item">
-    <i class="heart icon"></i>
-    Current Section
-  </a>
-  <a class="item">
-    <i class="facebook icon"></i>
-    Like us on Facebook
-  </a>
-  <div class="item">
-    <b>More</b>
-    <div class="menu">
-      <a class="item">About</a>
-      <a class="item">Contact Us</a>
+<div class="ui very thin vertical demo sidebar menu sidebardesign">
+  <a id="lol" class="item">
+    <div style="vertical-align: center;">
+      <i class="sign in icon"></i>
     </div>
-  </div>
+  </a>
+  <a id="lolbis" class="item" style="display: none;">
+    <div style="max-width: 100%;">
+    <input type="text" name="lname">
+    <input type="text" name="lname">
+    </div>
+  </a>
+  <a class="item">
+    <div style="vertical-align: center;">
+      <i class="home icon"></i>
+    </div>
+  </a>
 </div>
+
+<script>
+  $( "#lol" ).click(function() {
+  //   $("#lolbis").show();
+    // $('.ui').sidebar('add body css', wide);
+  // $('.sidebar').css('wide');
+    $('.demo.sidebar').css('wide');
+    $('.demo.sidebar').removeAttr('very thin');
+  });
+;
+</script>

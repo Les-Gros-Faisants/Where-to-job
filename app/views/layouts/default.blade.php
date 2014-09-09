@@ -23,7 +23,6 @@
 		@include('includes.footer')
 	</footer>
 
-	<button onclick="displaySidebar();">LOL</button>
 </div>
 </body>
 <script>
@@ -31,5 +30,6 @@ function displaySidebar()
 {
  $('.demo.sidebar').sidebar('toggle');
 }
+displaySidebar();
 </script>
 </html>
