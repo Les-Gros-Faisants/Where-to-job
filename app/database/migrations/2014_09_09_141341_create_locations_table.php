@@ -17,6 +17,8 @@ class CreateLocationsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unisgned();
 			$table->foreign('user_id')->references('id')->on('users');
+			$table->string('location');
+			$table->string('city');
 			$table->string('name');
 			$table->string('photos');
 			$table->string('ambiance');
