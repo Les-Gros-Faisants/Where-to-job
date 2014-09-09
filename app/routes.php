@@ -22,4 +22,4 @@ Route::get('home', function()
 });
 
 
-Route::get('user/{id}', 'UserController@showProfile');
+Route::get('user/{id?}', 'UserController@showProfile');

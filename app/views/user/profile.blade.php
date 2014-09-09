@@ -1,1 +1,1 @@
-USER PROFILE <?php echo $user;?>
+Profile found <?php echo $user;?>
