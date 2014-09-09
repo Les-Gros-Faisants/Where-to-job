@@ -6,6 +6,7 @@
 <title>Super Cool Layouts</title>
 
 <link href="css/header.css" rel="stylesheet" type="text/css">
+<link href="css/ribbon.css" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Rambla|Dosis|Poiret+One|Philosopher|Lobster|Exo|Indie+Flower|Jura' rel='stylesheet' type='text/css'>
 <link href="http://cdn.bootcss.com/semantic-ui/0.16.1/css/semantic.css" rel="stylesheet">
 
