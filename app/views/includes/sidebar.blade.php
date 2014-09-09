@@ -21,8 +21,10 @@
 <script>
   $( "#lol" ).click(function() {
   //   $("#lolbis").show();
-  $('.ui').sidebar('hide');
-
+    // $('.ui').sidebar('add body css', wide);
+  // $('.sidebar').css('wide');
+    $('.demo.sidebar').css('wide');
+    $('.demo.sidebar').removeAttr('very thin');
   });
 ;
 </script>
