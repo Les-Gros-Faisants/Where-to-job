@@ -8,3 +8,15 @@
   font-size: 150px;
   text-align: center;
 }
+
+.my_right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    background-color: #b0e0e6;
+}
+
+img
+{
+  align: center;
+}
