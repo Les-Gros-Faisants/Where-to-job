@@ -1,8 +1,8 @@
-
+<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="author" content="Scotch">
-
+<link rel="stylesheet" href="/css/main.css">
 <title>Super Cool Layouts</title>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

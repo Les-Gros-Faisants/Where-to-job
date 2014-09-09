@@ -1,4 +1,16 @@
-/* Feuille de style temporaire */
-.what {
-	color: green;
+.ui.active.sidebardesign {
+	background: whitesmoke; 
+	width: 150px !important;
+}
+
+.ui.vertical.menu .item:hover {
+	background: #DDDDDD;
+}
+
+.item {
+	text-align: center;
+}
+
+.sidebarimage {
+	max-width: 100%;
 }
