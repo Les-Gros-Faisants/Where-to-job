@@ -16,7 +16,6 @@
 	<div id="main" class="row">
 
 			@yield('content')
-
 	</div>
 
 	<footer class="row">

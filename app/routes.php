@@ -15,3 +15,5 @@ Route::get('/', function()
 {
 	return View::make('pages.home');
 });
+
+Route::get('/location/show/{id?}', 'LocationController@show');
