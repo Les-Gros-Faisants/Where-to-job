@@ -21,5 +21,6 @@ Route::get('home', function()
 	return View::make('home');
 });
 
+Route::controller('/articles', 'ArticlesController');
 
 Route::get('user/{id}', 'UserController@showProfile');
