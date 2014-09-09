@@ -4,11 +4,14 @@ div {
 
 body {
 	font-family: 'Rambla', sans-serif;
-	background-image: url('../assets/images/background.png');
+	background-color: white;
 }
 
 .banniere {
-	background-color: #CcCcCc;
+	background: whitesmoke;
+	border: 1px solid #C0C0C0;
+	border-color: rgba(0,0,0,0.15);
+	box-shadow: 0 0 4px rgba(0,0,0,0.125);
 	position: absolute;
 	top: 0;
 	left: 0;
