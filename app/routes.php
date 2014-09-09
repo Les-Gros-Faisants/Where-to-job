@@ -18,5 +18,8 @@ Route::get('/', function()
 
 Route::get('home', function()
 {
-    return View::make('home');
+	return View::make('home');
 });
+
+
+Route::get('user/{id}', 'UserController@showProfile');
