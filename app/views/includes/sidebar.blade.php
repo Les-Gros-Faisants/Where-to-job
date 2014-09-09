@@ -1,5 +1,5 @@
 <!-- sidebar nav -->
-<div class="ui red vertical demo sidebar menu sidebardesign">
+<div class="ui very thin vertical demo sidebar menu sidebardesign">
   <div>
     <img class="sidebarimage" src="assets/images/logo.png">
   </div>
@@ -8,7 +8,7 @@
       <i class="big sign in icon"></i>
     </div>
   </a>
-  <a id="lolbis" class="item" style="display: none;">  
+  <a id="lolbis" class="item" style="display: none;">
     <div style="max-width: 100%;">
     <input type="text" name="lname">
     <input type="text" name="lname">
