@@ -13,13 +13,12 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
-});
-
-Route::get('home', function()
-{
 	return View::make('home');
 });
 
+<<<<<<< HEAD
 
 Route::get('user/{id?}', 'UserController@showProfile');
+=======
+Route::get('user/{id}', 'UserController@showProfile');
+>>>>>>> 20f201e33e3b11dd95793337cccb9904964679d8
