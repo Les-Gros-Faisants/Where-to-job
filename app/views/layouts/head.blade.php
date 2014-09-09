@@ -5,6 +5,7 @@
     <meta name="description" content="Un petit site, de style posé.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Where to Job</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 @yield('body')
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
