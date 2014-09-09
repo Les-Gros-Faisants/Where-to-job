@@ -1,0 +1,30 @@
+div {
+	text-align: center;
+}	
+
+body {
+	font-family: 'Rambla', sans-serif;
+	background-image: url('../assets/images/background.png');
+}
+
+.banniere {
+	background-color: #CcCcCc;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.description{
+	position: absolute;
+	width: 500px;
+	top: 50%;
+	left: 50%;
+	margin-top: -160px;
+	margin-left: -240px;
+	background: #F9F9F9;
+	border: 1px solid #C0C0C0;
+	border-color: rgba(0,0,0,0.15);
+	box-shadow: 0 0 4px rgba(0,0,0,0.125);
+	padding: 15px;
+}
