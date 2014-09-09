@@ -12,7 +12,14 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('users', function($table))
+		{
+			$table->increment('id');
+			$table->string('name');
+			$table->string('adress');
+			$table->string('infos');
+			// etc
+		}
 	}
 
 	/**
@@ -22,7 +29,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('users');
 	}
 
 }
