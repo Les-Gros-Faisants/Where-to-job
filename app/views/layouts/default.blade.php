@@ -23,11 +23,11 @@
 		@include('includes.footer')
 	</footer>
 
-	<button onclick="lol();">LOL</button>
+	<button onclick="displaySidebar();">LOL</button>
 </div>
 </body>
 <script>
-function lol()
+function displaySidebar()
 {
  $('.demo.sidebar').sidebar('toggle');
 }
