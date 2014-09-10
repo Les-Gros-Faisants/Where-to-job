@@ -1,10 +1,6 @@
 <!-- sidebar nav -->
 <div class="ui very thin vertical demo sidebar menu sidebardesign">
-  <a id="loginbutton" class="item">
-    <div style="vertical-align: center;">
-      <i class="sign in icon"></i>
-    </div>
-  </a>
+  @include('includes.nonconnected')
   <a class="item" href="/">
     <div style="vertical-align: center;">
       <i class="home icon"></i>
