@@ -19,7 +19,6 @@
     <div class="column">
       <div class="ui form segment">
         <div class="field">
-          <label>Username</label>
           <div class="ui left labeled icon input">
             <input type="text" placeholder="Username">
             <i class="user icon"></i>
@@ -29,7 +28,6 @@
           </div>
         </div>
         <div class="field">
-          <label>Password</label>
           <div class="ui left labeled icon input">
             <input type="password">
             <i class="lock icon"></i>
