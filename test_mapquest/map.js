@@ -2,7 +2,7 @@ function load_map( string ) {
 
 if ( string === 'nominatim' ) {
     alert( 'coucou' );
-} 
+}
 
 MQA.EventUtil.observe( window, 'load', function() {
     
