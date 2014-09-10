@@ -1,6 +1,6 @@
 .ui.active.sidebardesign {
 	background: whitesmoke; 
-	width: 150px !important;
+	transition: margin-left 0s ease, margin-top 0s ease;
 }
 
 .ui.vertical.menu .item:hover {
