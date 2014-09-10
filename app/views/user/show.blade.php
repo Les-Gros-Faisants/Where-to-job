@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
-  SHOW LOCATION
-  @foreach($location as $var)
+  SHOW USER
+  @foreach($user as $var)
   {{ $var }}
   @endforeach
 @stop

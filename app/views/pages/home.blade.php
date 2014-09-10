@@ -10,7 +10,14 @@
 
   <div id="searchbar" class="ui item">
     <div class="ui fluid action input">
-      <input placeholder="Search..." type="text">
+      {{ Form::model(null, array('route' => array('location.search'))) }}
+
+
+      {{ Form::text('search', null, array('placeholder'=>'Search')) }}
+      <br/><br/>
+      {{ Form::submit('Search') }}
+
+      {{ Form::close() }}
       <div id="searchsettings" class="ui left pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
@@ -18,12 +25,16 @@
           <div class="item"><i class="delete icon"></i>Remove</div>
           <div class="item"><i class="hide icon"></i>Hide</div>
         </div>
-    </div>
+      </div>
     </div>
   </div>
 </div>
+  @if (isset($search))
+  C4EST DE LA BONNE NEGRO <br/><br/>
+  {{ var_dump($search) }}
+ @endif
 <script>
-$('#searchsettings').dropdown();
+  $('#searchsettings').dropdown();
 </script>
 
 @stop

@@ -1,18 +1,18 @@
 @extends('layouts.default')
 @section('content')
-EDIT LOCATION
+EDIT USER
 <?php
-// get all columns from location table
- $columns = Schema::getColumnListing('locations');
+// get all columns from user table
+ $columns = Schema::getColumnListing('users');
 ?>
 
-{{ Form::model($location, array('route' => array('location.update', $location[0]->id))) }}
+{{ Form::model($user, array('route' => array('user.update', $user[0]->id))) }}
 
 <!-- loop thru columns to generate each textarea -->
 @foreach($columns as $column) <!-- for every field in the table -->
-	@if ($column != 'id' && $column != 'user_id') <!-- if it's not an id -->
+	@if ($column != 'id') <!-- if it's not an id -->
 		{{ Form::label($column, ucfirst($column)) }} <!-- display it in a textarea -->
-		{{ Form::text($column, null, array('placeholder'=>$location[0]->$column)) }}
+		{{ Form::text($column, null, array('placeholder'=>$user[0]->$column)) }}
 	<br/>
 	@endif
 @endforeach

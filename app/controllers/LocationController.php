@@ -1,6 +1,6 @@
 <?php
 
-class LocationController extends \BaseController {
+class LocationController extends BaseController {
 
 	/**
 	* Display a listing of the resource.
@@ -34,6 +34,16 @@ class LocationController extends \BaseController {
 		//
 	}
 
+	public function search()
+	{
+		$inputs = Input::except('_token');
+		$view = View::make('pages.home');
+		$view->withSearch($inputs);
+		// découper la search et effectuer le tri dans la db
+		return $view;
+
+	}
+
 
 	/**
 	* Display the specified resource.
@@ -43,7 +53,7 @@ class LocationController extends \BaseController {
 	*/
 	public function show($id = NULL)
 	{
-		$location = Location::GetLocation($id)->get();
+		$location = Location::where('id', '=', $id)->get();
 		return View::make('location.show')->withLocation($location);
 	}
 
@@ -55,20 +65,28 @@ class LocationController extends \BaseController {
 	*/
 	public function edit($id)
 	{
-		$location = Location::GetLocation($id)->get();
-		return View::make('location.edit')->withLocation($location);
+		$location = Location::where('id', '=', $id)->get();
+		$view = View::make('location.edit');
+		$view->withLocation($location);
+		return $view;
 	}
 
 
 	/**
-	* Update the specified resource in storage.
+	* Update the specified resource in storage and redirect the user to the "show" page of the location
+	* Use Input::except to get all input from the 'edit' form
+	* user array_filter to remove empty fields
 	*
 	* @param  int  $id
 	* @return Response
 	*/
 	public function update($id)
 	{
-		//
+		$location = Location::where('id', '=', $id)->firstOrFail();
+		$inputs = Input::except('_token');
+		$inputs = array_filter($inputs, 'strlen');
+		$location->update($inputs);
+		return Redirect::to('/location/' . $id . '/show');
 	}
 
 
