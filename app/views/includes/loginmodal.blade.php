@@ -1,11 +1,17 @@
 <div id="loginmodal" class="ui modal">
   <i class="close icon"></i>
   <div class="content">
-    <div class="left">
+    <div class="left" style="font-family: 'Philosopher', sans-serif;">
+    <div style="float: left;">
       Login :
-      <input><br><br>
+      <div class="ui input">
+  <input type="text" placeholder="Search...">
+</div>
+      </div>
       Password :
-      <input>
+      <div class="ui input">
+  <input type="text" placeholder="Search...">
+</div>
     </div>
   </div>
   <div class="actions">
