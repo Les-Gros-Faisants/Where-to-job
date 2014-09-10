@@ -16,12 +16,12 @@ Route::get('/', function()
 	return View::make('pages.home');
 });
 
-Route::controller('/', 'HomeController');
-
 Route::get('/404', function()
 {
 	return View::make('pages.404');
 });
 
-Route::get('/location/show/{id?}', 'locationController@show');
-Route::get('/location/edit/{id}', 'locationController@edit');
+Route::get('/location/show/{id?}', 'LocationController@show');
+Route::get('/location/edit/{id}', 'LocationController@edit');
+
+Route::controller('/', 'HomeController');
