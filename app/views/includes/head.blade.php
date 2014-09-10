@@ -6,6 +6,7 @@
 <title>Super Cool Layouts</title>
 
 <link rel="stylesheet" href="/css/main.css">
+<link href="css/home.css" rel="stylesheet" type="text/css">
 <link href="css/map.css" rel="stylesheet" type="text/css">
 <link href="css/header.css" rel="stylesheet" type="text/css">
 <link href="css/ribbon.css" rel="stylesheet" type="text/css">

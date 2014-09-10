@@ -1,4 +1,6 @@
-html
+#searchbar
 {
-  font-family: 'Rambla', sans-serif;
+  padding: auto;
+  margin: auto;
+  width: 75%;
 }
