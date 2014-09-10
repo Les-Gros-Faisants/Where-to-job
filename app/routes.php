@@ -16,9 +16,18 @@ Route::get('/', function()
 	return View::make('pages.home');
 });
 
+<<<<<<< HEAD
 Route::get('/location/show/{id?}', 'LocationController@show');
 
+=======
+>>>>>>> origin/master
 Route::get('/404', function()
 {
 	return View::make('pages.404');
 });
+<<<<<<< HEAD
+=======
+
+Route::get('/location/show/{id?}', 'locationController@show');
+Route::get('/location/edit/{id}', 'locationController@edit');
+>>>>>>> origin/master

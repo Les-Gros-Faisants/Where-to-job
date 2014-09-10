@@ -7,6 +7,7 @@
 	<div class="left_sidebar">
 		@include('includes.sidebar')
 	</div>
+	@include('includes.loginmodal')
 <div class="container">
 
 	<header class="row">
@@ -24,11 +25,4 @@
 
 </div>
 </body>
-<script>
-function displaySidebar()
-{
- $('.demo.sidebar').sidebar('toggle');
-}
-displaySidebar();
-</script>
 </html>

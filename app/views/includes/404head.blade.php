@@ -5,5 +5,5 @@
 
 <title>Vous êtes perdu !</title>
 
-<link href='css/404.css' rel='stylesheet' type='text/css'>
+<link href='{{asset('css/404.css')}}' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Rambla' rel='stylesheet' type='text/css'>
