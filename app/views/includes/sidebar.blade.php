@@ -5,7 +5,7 @@
       <i class="sign in icon"></i>
     </div>
   </a>
-  <a class="item">
+  <a class="item" href="/">
     <div style="vertical-align: center;">
       <i class="home icon"></i>
     </div>
