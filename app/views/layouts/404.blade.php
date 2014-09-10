@@ -9,6 +9,7 @@
 		</div>
 		<div class='description'>
 			<h2>This is not the page you're looking for.</h2>
+			<a href='/'>Go to homepage</a>
 		</div>
 	</body>
 </html>

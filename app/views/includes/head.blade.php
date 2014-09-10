@@ -2,9 +2,11 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="author" content="Scotch">
-<link rel="stylesheet" href="/css/main.css">
+
 <title>Super Cool Layouts</title>
 
+<link rel="stylesheet" href="/css/main.css">
+<link href="css/map.css" rel="stylesheet" type="text/css">
 <link href="css/header.css" rel="stylesheet" type="text/css">
 <link href="css/ribbon.css" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Rambla|Dosis|Poiret+One|Philosopher|Lobster|Exo|Indie+Flower|Jura' rel='stylesheet' type='text/css'>

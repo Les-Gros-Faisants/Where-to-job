@@ -43,7 +43,7 @@ class LocationController extends \BaseController {
 	*/
 	public function show($id = NULL)
 	{
-		$location = Location::GetLocations($id)->get();
+		$location = Location::GetLocation($id)->get();
 		return View::make('location.show')->withLocation($location);
 	}
 
@@ -55,7 +55,8 @@ class LocationController extends \BaseController {
 	*/
 	public function edit($id)
 	{
-		//
+		$location = Location::GetLocation($id)->get();
+		return View::make('location.edit')->withLocation($location);
 	}
 
 
