@@ -3,9 +3,6 @@
 <div>
   <div class="ui segment">
     <div id='map' class="ui item"></div>
-    <div id="mapLoader" class="ui active dimmer">
-      <div class="ui loader"></div>
-    </div>
   </div>
   <div class="ui horizontal icon divider">
     <i class="search icon"></i>
@@ -24,7 +21,6 @@
     </div>
     </div>
   </div>
-
 </div>
 <script>
 $('#searchsettings').dropdown();
