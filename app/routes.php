@@ -16,6 +16,8 @@ Route::get('/', function()
 	return View::make('pages.home');
 });
 
+Route::controller('/', 'HomeController');
+
 Route::get('/404', function()
 {
 	return View::make('pages.404');
