@@ -5,12 +5,13 @@
 
 .title
 {
-  font-size: 150px;
+  font-size: 100px;
   text-align: center;
 }
 
 .container
 {
+  font-family: 'Rambla', sans-serif;
   padding: auto;
   margin: auto;
   width: 75%;
