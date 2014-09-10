@@ -21,7 +21,8 @@ Route::get('/404', function()
 	return View::make('pages.404');
 });
 
-Route::get('/location/show/{id?}', 'LocationController@show');
-Route::get('/location/edit/{id}', 'LocationController@edit');
+Route::get('/location/{id}/show', 'LocationController@show');
+Route::get('/location/{id}/edit', 'LocationController@edit');
+
 
 Route::controller('/', 'HomeController');
