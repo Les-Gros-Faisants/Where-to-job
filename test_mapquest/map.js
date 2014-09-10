@@ -1,3 +1,9 @@
+function load_map( string ) {
+
+if ( string === 'nominatim' ) {
+    alert( 'coucou' );
+} 
+
 MQA.EventUtil.observe( window, 'load', function() {
     
     document.getElementById( 'map' ).style.width = window.innerWidth + 'px';
@@ -11,7 +17,7 @@ MQA.EventUtil.observe( window, 'load', function() {
     	console.log( 'div pixel = ' + document.getElementById( 'map' ).style.width + ' width window = ' + window.innerWidth  );
     	window.map.setSize( resize_map );
     }
-    
+
     var option = {
 	elt: document.getElementById( 'map' ),
 	zoom: 10,
@@ -42,3 +48,5 @@ MQA.EventUtil.observe( window, 'load', function() {
 	map.enableMouseWheelZoom();
     });
 });
+
+}
