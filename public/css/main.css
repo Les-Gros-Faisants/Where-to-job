@@ -1,11 +1,6 @@
 .ui.active.sidebardesign {
-<<<<<<< HEAD
 	background: whitesmoke;
-	width: 150px !important;
-=======
-	background: whitesmoke; 
 	transition: margin-left 0s ease, margin-top 0s ease;
->>>>>>> origin/master
 }
 
 .ui.vertical.menu .item:hover {
@@ -14,8 +9,4 @@
 
 .item {
 	text-align: center;
-}
-
-.sidebarimage {
-	max-width: 100%;
 }
