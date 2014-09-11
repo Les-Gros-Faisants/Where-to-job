@@ -43,20 +43,17 @@ Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search
 ** USER
 */
 
-=======
->>>>>>> 327e6bb5330a12cba1e934bf05f1225158be45e1
+
 Route::get('/user/{id?}/show', 'UserController@show');
 Route::get('/user/{id}/edit', 'UserController@edit');
 
-<<<<<<< HEAD
+
 Route::get('/user/create',['as' => 'user.create', 'uses' => 'UserController@Create']);
-=======
+
 Route::post('contact', 'UserController@send');
 //Route::post('/user/{id}/send', 'UserController@send');
 
 Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
->>>>>>> 327e6bb5330a12cba1e934bf05f1225158be45e1
-
 Route::post('/user/{id}/update',['as' => 'user.update', 'uses' => 'UserController@Update']);
 Route::post('/user/store',['as' => 'user.store', 'uses' => 'UserController@Store']);
 
