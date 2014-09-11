@@ -30,17 +30,17 @@ $columns = Schema::getColumnListing('users');
 		<div class="field">
 			{{ Form::label('First Name', 'First Name') }}
 			@if (isset($user))
-			{{ Form::text('First Name', null, array('placeholder'=>$user[0]->firstname)) }}
+			{{ Form::text('firstname', null, array('placeholder'=>$user[0]->firstname)) }}
 			@else
-			{{ Form::text('First Name', null, array('placeholder'=>'First Name')) }}
+			{{ Form::text('firstname', null, array('placeholder'=>'First Name')) }}
 			@endif
 		</div>
 		<div class="field">
 			{{ Form::label('Last Name', 'Last Name') }}
 			@if (isset($user))
-			{{ Form::text('Last Name', null, array('placeholder'=>$user[0]->lastname)) }}
+			{{ Form::text('lastname', null, array('placeholder'=>$user[0]->lastname)) }}
 			@else
-			{{ Form::text('Last Name', null, array('placeholder'=>'Last Name')) }}
+			{{ Form::text('lastname', null, array('placeholder'=>'Last Name')) }}
 			@endif
 		</div>
 <!-- 		<div class="field">
@@ -56,52 +56,52 @@ $columns = Schema::getColumnListing('users');
 		<div class="field">
 			{{ Form::label('Password', 'Password') }}
 			@if (isset($user))
-			{{ Form::password('Password', null, array('placeholder'=>$user[0]->password)) }}
+			{{ Form::password('password', null, array('placeholder'=>$user[0]->password)) }}
 			@else
-			{{ Form::password('Password', null, array('placeholder'=>'Password')) }}
+			{{ Form::password('password', null, array('placeholder'=>'Password')) }}
 			@endif
 		</div>
 		<div class="field">
 			{{ Form::label('Email', 'Email') }}
 			@if (isset($user))
-			{{ Form::email('Email', $value = null, $attributes = array('placeholder'=>$user[0]->email)) }}
+			{{ Form::email('email', $value = null, $attributes = array('placeholder'=>$user[0]->email)) }}
 			@else
-			{{ Form::email('Email', $value = null, $attributes = array('placeholder'=>'Email')) }}
+			{{ Form::email('email', $value = null, $attributes = array('placeholder'=>'Email')) }}
 			@endif
 		</div>
 	</div>
 	<div class="three fields">
 		<div class="field">
-			{{ Form::label('Addres', 'Addres') }}
+			{{ Form::label('Address', 'Address') }}
 			@if (isset($user))
-			{{ Form::text('Addres', null, array('placeholder'=>$user[0]->address)) }}
+			{{ Form::text('address', null, array('placeholder'=>$user[0]->address)) }}
 			@else
-			{{ Form::text('Addres', null, array('placeholder'=>'Addres')) }}
+			{{ Form::text('address', null, array('placeholder'=>'Address')) }}
 			@endif
 		</div>
 		<div class="field">
 			{{ Form::label('City', 'City') }}
 			@if (isset($user))
-			{{ Form::text('City', null, array('placeholder'=>$user[0]->city)) }}
+			{{ Form::text('city', null, array('placeholder'=>$user[0]->city)) }}
 			@else
-			{{ Form::text('City', null, array('placeholder'=>'City')) }}
+			{{ Form::text('Cicityty', null, array('placeholder'=>'City')) }}
 			@endif
 		</div>
 		<div class="field">
 			{{ Form::label('Job', 'Job') }}
 			@if (isset($user))
-			{{ Form::text('Job', null, array('placeholder'=>$user[0]->job)) }}
+			{{ Form::text('job', null, array('placeholder'=>$user[0]->job)) }}
 			@else
-			{{ Form::text('Job', null, array('placeholder'=>'Job')) }}
+			{{ Form::text('job', null, array('placeholder'=>'Job')) }}
 			@endif
 		</div>
 	</div>
 	<div class="field">
 		{{ Form::label('Infos', 'Infos') }}
 		@if (isset($user))
-		{{ Form::textarea('Infos', null, array('placeholder'=>$user[0]->infos)) }}
+		{{ Form::textarea('infos', null, array('placeholder'=>$user[0]->infos)) }}
 		@else
-		{{ Form::textarea('Infos', null, array('placeholder'=>'Infos')) }}
+		{{ Form::textarea('infos', null, array('placeholder'=>'Infos')) }}
 		@endif
 	</div>
 	<div class="field">
