@@ -15,10 +15,10 @@
 
       {{ Form::text('search', null, array('placeholder'=>'Search')) }}
       <br/><br/>
-      {{ Form::submit('Search', ['class' => 'btn btn-large btn-primary openbutton']) }}
+      {{ Form::submit('Search', ['class' => 'button']) }}
 
       {{ Form::close() }}
-      <div id="searchsettings" class="button">
+      <div id="searchsettings" class="ui left pointing dropdown icon button">
         <i class="settings icon"></i>
         <div class="menu">
           <div class="item"><i class="edit icon"></i>Edit</div>
