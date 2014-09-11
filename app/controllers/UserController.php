@@ -114,12 +114,13 @@ class UserController extends \BaseController {
 		$fromEmail = Input::get('email');
     	$fromName = Input::get('username');
     	$data = Input::get('message');
-    	$subject = 'Mail from where to job user';
+    	$subject = 'Mail from whereToJob user';
 
-    	$toEmail = 'david.henner@epitech.eu';
-    	$toName = 'David Henner';
+    	$toEmail = 'nrdav@hotmail.fr';
+    	$toName = 'Julien Ganichot';
 
-	    Mail::send('emails.contact', array('data' =>  $data), function($message) use ($toEmail, $toName, $fromEmail, $fromName, $subject)
+	    Mail::send('emails.contact', array('data' =>  $data, 'name' => $fromName, 'email' => $fromEmail),
+	    	function($message) use ($toEmail, $toName, $fromEmail, $fromName, $subject)
     	{
     		$message->to($toEmail, $toName)->subject($subject);
 //       		$message->to($toEmail, $toName);

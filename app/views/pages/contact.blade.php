@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 	<h1>Contact us</h1>
-	{{ Form::open(array('url' => 'contact/send')) }}
+	{{ Form::open(array('url' => 'contact')) }}
 	<div class="ui fluid action input">
 	<div>
 		<div class="ui pointing right label">
