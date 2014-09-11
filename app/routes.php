@@ -34,9 +34,11 @@ Route::get('/back', function()
 
 Route::get('/location/{id?}/show', 'LocationController@show');
 Route::get('/location/{id}/edit', 'LocationController@edit');
-Route::post('/location/{id}/update',['as' => 'location.update', 'uses' => 'LocationController@Update']);
 
-Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
+Route::get('/location/create',['as' => 'user.create', 'uses' => 'LocationController@Create']);
+Route::post('/location/{id}/update',['as' => 'location.update', 'uses' => 'LocationController@Update']);
+Route::post('/location/store',['as' => 'location.store', 'uses' => 'LocationController@Store']);
+
 
 /*
 ** USER
@@ -53,6 +55,7 @@ Route::post('contact', 'UserController@send');
 //Route::post('/user/{id}/send', 'UserController@send');
 
 Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
+
 Route::post('/user/{id}/update',['as' => 'user.update', 'uses' => 'UserController@Update']);
 Route::post('/user/store',['as' => 'user.store', 'uses' => 'UserController@Store']);
 
