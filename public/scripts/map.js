@@ -10,11 +10,12 @@ function custom_find_me( map ) {
     custom_fm.id = 'fm_control';
     custom_fm.style.position = 'absolute';
     custom_fm.style.zIndex = '50';
-    custom_fm.style.width = '42px';
+    custom_fm.style.width = '20px';
     custom_fm.style.height = '42px';
     custom_fm.style.top = '5px';
-    custom_fm.style.right = '5px';
-    custom_fm.style.backgroundImage = '../assets/images/waving_man_sat.png';
+    custom_fm.style.right = '2px';
+    custom_fm.style.backgroundImage = "url('../assets/images/waving_man_sat.png')";
+    custom_fm.style.backgroundRepeat = 'no-repeat';
     document.getElementById( 'map' ).appendChild( custom_fm );
 
     custom_fm.onclick = function() {
