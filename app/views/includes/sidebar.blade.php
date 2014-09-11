@@ -6,7 +6,7 @@
       <i class="home icon"></i>
     </div>
   </a>
-  <a class="item" href="/">
+  <a class="item" href="/location/create">
     <div style="vertical-align: center;">
       <i class="add icon"></i>
     </div>

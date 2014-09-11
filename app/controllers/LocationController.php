@@ -20,7 +20,9 @@ class LocationController extends BaseController {
 	*/
 	public function create()
 	{
-		//
+		$view = View::make('location.createOrUpdate');
+		return $view;
+
 	}
 
 
