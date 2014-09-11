@@ -2,12 +2,7 @@ function load_map( string ) {
 
 MQA.EventUtil.observe( window, 'load', function() {
 
-<<<<<<< HEAD
-    $( '#map' ).css( 'width', $( '#map_div' ).width() );
-
-=======
     $( '#map' ).css( 'width', $( '#map_div' ).width() - 25);
->>>>>>> d136ff70720a78dd4818873efe2e0c0f5012d5b6
     window.onresize = function( event ) {
     	var resize_map = new MQA.Size (
     	    $( '#map_div' ).width(),

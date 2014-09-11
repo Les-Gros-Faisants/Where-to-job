@@ -7,17 +7,13 @@
   <div class="ui horizontal icon divider">
     <i class="search icon"></i>
   </div>
-
-  <div id="searchbar" class="ui item">
-    <div class="ui fluid action input">
-      {{ Form::model(null, array('route' => array('location.search'))) }}
-
     <div id="searchbar" class="ui item">
       <div class="ui fluid action input">
         {{ Form::model(null, array('route' => array('location.search'))) }}
 
         <div class="ui fluid left icon input">
           {{ Form::text('city', null, array('placeholder'=>'City...')) }}
+          <i class="globe icon"></i>
         </div>
         <br/>
         <div class="ui fluid left icon input">
