@@ -21,16 +21,26 @@ Route::get('/404', function()
 	return View::make('pages.404');
 });
 
+/*
+** LOCATION
+*/
+
 Route::get('/location/{id?}/show', 'LocationController@show');
 Route::get('/location/{id}/edit', 'LocationController@edit');
 Route::post('/location/{id}/update',['as' => 'location.update', 'uses' => 'LocationController@Update']);
 
+Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
+
+/*
+** USER
+*/
 
 Route::get('/user/{id?}/show', 'UserController@show');
 Route::get('/user/{id}/edit', 'UserController@edit');
+
+Route::get('/user/create',['as' => 'user.create', 'uses' => 'UserController@Create']);
+
 Route::post('/user/{id}/update',['as' => 'user.update', 'uses' => 'UserController@Update']);
+Route::post('/user/store',['as' => 'user.store', 'uses' => 'UserController@Store']);
 
-Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
-
-
-Route::controller('/', 'HomeController');
+//Route::controller('/', 'HomeController');

@@ -20,7 +20,8 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$view = View::make('user.createOrUpdate');
+		return $view;
 	}
 
 
@@ -31,9 +32,8 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$max = User::max('id');
 	}
-
 
 	/**
 	 * Display the specified resource.
@@ -57,7 +57,7 @@ class UserController extends \BaseController {
 	public function edit($id)
 	{
 		$user = User::where('id', '=', $id)->get();
-		$view = View::make('user.edit');
+		$view = View::make('user.createOrUpdate');
 		$view->withUser($user);
 		return $view;
 	}
@@ -76,7 +76,6 @@ class UserController extends \BaseController {
 		$inputs = array_filter($inputs, 'strlen');
 		$user->update($inputs);
 		return Redirect::to('/user/' . $id . '/show');
-
 	}
 
 
