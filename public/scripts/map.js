@@ -31,6 +31,12 @@ function load_map( string ) {
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	    });
+	    var custom_icon = new MQA.Icon( '../assets/images/MiniMenMap.png', 32, 52 );
+	    user.setIcon( custom_icon );
+	    user.setShadowOffset({
+		x: 10,
+		y: -25
+	    });
 	    map.setCenter ({
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
