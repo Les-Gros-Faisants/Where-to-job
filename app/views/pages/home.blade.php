@@ -26,7 +26,9 @@
       @if (isset($locations) && isset($city) && count($locations) > 0)
         <p>{{ count($locations) }} found in {{ $city }}</p>
         @foreach ($locations as $item)
-          <p>{{ $item->name }}</p>
+          <div class="loc_miniature" id="min{{ $item->id }}">
+            <p>{{ $item->name }}</p>
+          </div>
         @endforeach
       @elseif (isset($city))
         <p>No results for {{ $city }}</p>
