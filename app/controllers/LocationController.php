@@ -31,7 +31,14 @@ class LocationController extends BaseController {
 	*/
 	public function store()
 	{
-		//
+		$newLocation = new Location;
+		$inputs = Input::except('_token');
+		$inputs = array_filter($inputs, 'strlen');
+		$newLocation->update($inputs);
+
+		$lcoation_id = $newLocation->id;
+		$location = User::where('id', '=', $location_id)->get();
+		return Redirect::to('/location/' . $location_id . '/show');
 	}
 
 	public function search()
@@ -39,9 +46,15 @@ class LocationController extends BaseController {
 		$inputs = Input::except('_token');
 		$view = View::make('pages.home');
 
-		$view->locations = Location::where('city');
-
-		return $view;
+		$view->city = $inputs['city'];
+		$tmp = Location::where('city', '=', $inputs['city']);
+		// if (isset($inputs['ambience']))
+		// 	$tmp->where('ambience', 'like', $inputs['ambience']);
+		if (isset($tmp) && !empty($tmp))
+	  	$view->locations = $tmp->get();
+		else
+			$view->locations = null;
+		return ($view);
 	}
 
 
@@ -66,7 +79,7 @@ class LocationController extends BaseController {
 	public function edit($id)
 	{
 		$location = Location::where('id', '=', $id)->get();
-		$view = View::make('location.edit');
+		$view = View::make('location.createOrUpdate');
 		$view->withLocation($location);
 		return $view;
 	}
@@ -86,7 +99,7 @@ class LocationController extends BaseController {
 		$inputs = Input::except('_token');
 		$inputs = array_filter($inputs, 'strlen');
 		$location->update($inputs);
-		return Redirect::to('/location/' . $id . '/show');
+		//return Redirect::to('/location/' . $id . '/show');
 	}
 
 

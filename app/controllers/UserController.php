@@ -20,7 +20,8 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$view = View::make('user.createOrUpdate');
+		return $view;
 	}
 
 
@@ -31,9 +32,16 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
-	}
+		$newUser = new User;
+		$inputs = Input::except('_token');
+		Input::replace(array('password' => Hash::make(Input::get('password'))));
+		$inputs = array_filter($inputs, 'strlen');
+		$newUser->update($inputs);
 
+		$user_id = $newUser->id;
+		$user = User::where('id', '=', $user_id)->get();
+		return Redirect::to('/user/' . $user_id . '/show');
+	}
 
 	/**
 	 * Display the specified resource.
@@ -57,7 +65,7 @@ class UserController extends \BaseController {
 	public function edit($id)
 	{
 		$user = User::where('id', '=', $id)->get();
-		$view = View::make('user.edit');
+		$view = View::make('user.createOrUpdate');
 		$view->withUser($user);
 		return $view;
 	}
@@ -76,7 +84,6 @@ class UserController extends \BaseController {
 		$inputs = array_filter($inputs, 'strlen');
 		$user->update($inputs);
 		return Redirect::to('/user/' . $id . '/show');
-
 	}
 
 

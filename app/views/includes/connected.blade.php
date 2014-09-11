@@ -8,7 +8,7 @@
 	</a>
 	<a class="item" href="/">
 		<div style="vertical-align: center;">
-		<i class="add icon"></i>
+			<i class="add icon"></i>
 		</div>
 	</a>
 	<a class="item">

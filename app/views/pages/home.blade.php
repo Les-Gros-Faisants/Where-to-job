@@ -1,12 +1,9 @@
 @extends('layouts.default')
 @section('content')
 <div>
-  <div id="map_div" class="ui segment">
-    <div id='map' style="overflow:hidden;width:750px;height:400px;position:relative;" class="ui item"></div>
-  </div>
-  <div class="ui horizontal icon divider">
-    <i class="search icon"></i>
-  </div>
+    <div id="map_div" class="ui segment">
+      <div id='map' style="overflow:hidden;width:750px;height:400px;position:relative;" class="ui item"></div>
+    </div>
     <div id="searchbar" class="ui item">
       <div class="ui fluid action input">
         {{ Form::model(null, array('route' => array('location.search'))) }}
@@ -17,7 +14,7 @@
         </div>
         <br/>
         <div class="ui fluid left icon input">
-          {{ Form::text('ambience', null, array('placeholder'=>'Ambience...')) }}
+          {{ Form::text('ambience', null, array('placeholder'=>'Ambience...', 'id' => 'ambience_field', 'disabled' => 'disabled')) }}
           <i class="glass icon"></i>
         </div>
         <br/>
@@ -25,11 +22,17 @@
         {{ Form::close() }}
       </div>
     </div>
+    <div id="results">
+      @if (isset($locations) && isset($city) && count($locations) > 0)
+        <p>{{ count($locations) }} found in {{ $city }}</p>
+        @foreach ($locations as $item)
+          <div class="loc_miniature" id="min{{ $item->id }}">
+            <p>{{ $item->name }}</p>
+          </div>
+        @endforeach
+      @elseif (isset($city))
+        <p>No results for {{ $city }}</p>
+      @endif
+    </div>
   </div>
-
-  @if (isset($locations))
-    C4EST DE LA BONNE NEGRO <br/><br/>
-    {{ var_dump($locations) }}
-  @endif
-
 @stop

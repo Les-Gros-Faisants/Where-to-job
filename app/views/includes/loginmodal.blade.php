@@ -49,10 +49,9 @@
             </div>          
           </ul>
           <ul>
-            <div class="medium green ui icon button" style="width: 100%">
-              <i class="signup icon"></i>
-              Sign Up
-            </div>          
+          <a href='/user/create'>
+          {{ Form::button('<i class="signup icon"></i> Sign up' ,['type' => 'submit', 'class' => 'medium green ui icon button', 'style' => 'width:100%'])  }}
+          </a>
           </ul>
         </li>
       </div>
