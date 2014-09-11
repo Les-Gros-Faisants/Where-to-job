@@ -11,18 +11,7 @@ $columns = Schema::getColumnListing('users');
 {{ Form::open(array('route' => 'user.store')) }}
 @endif
 
-<!-- loop thru columns to generate each textarea -->
-@foreach($columns as $column) <!-- for every field in the table -->
-@if ($column != 'id') <!-- if it's not an id -->
-{{ Form::label($column, ucfirst($column)) }} <!-- display it in a textarea -->
-@if (isset($user))
-{{ Form::text($column, null, array('placeholder'=>$user[0]->$column)) }}
-@else
-{{ Form::text($column) }}
-@endif
-<br/>
-@endif
-@endforeach
+
 
 
 <div class="ui error form segment">
