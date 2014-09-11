@@ -1,31 +1,4 @@
 function load_map( string ) {
-
-<<<<<<< HEAD
-MQA.EventUtil.observe( window, 'load', function() {
-
-    $( '#map' ).css( 'width', $( '#map_div' ).width() - 25);
-    window.onresize = function( event ) {
-    	var resize_map = new MQA.Size (
-    	    $( '#map_div' ).width(),
-	    $( '#map_div' ).height()
-    	);
-	console.log( $("#map_div").width() + ' ' + $( '#map' ).width() );
-    	window.map.setSize( resize_map );
-    }
-
-    var option = {
-	elt: document.getElementById( 'map' ),
-	zoom: 10,
-	latLng: { lat: 48.503121, lng: 6.058019 },
-	mtype: 'map'
-    };
-    window.map = new MQA.TileMap( option );
-
-    navigator.geolocation.getCurrentPosition( function( position ) {
-	map.setCenter ({
-	    lat: position.coords.latitude,
-	    lng: position.coords.longitude
-=======
     MQA.EventUtil.observe( window, 'load', function() {
 	
 	$( '#map' ).css( 'width', $( '#map_div' ).width() - 30);
@@ -40,7 +13,7 @@ MQA.EventUtil.observe( window, 'load', function() {
 	
 	var option = {
 	    elt: document.getElementById( 'map' ),
-	    zoom: 10,
+	    zoom: 15,
 	    latLng: { lat: 48.503121, lng: 6.058019 },
 	    mtype: 'map'
 	};
@@ -51,7 +24,6 @@ MQA.EventUtil.observe( window, 'load', function() {
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	    });
->>>>>>> 5aee7a1d71938cbb08eb3a5ef9f8ca0f0b072224
 	});
 	
 	MQA.withModule( 'smallzoom', 'geolocationcontrol', 'mousewheel', function() {
@@ -63,7 +35,7 @@ MQA.EventUtil.observe( window, 'load', function() {
 	    
 	    map.addControl(
 		new MQA.GeolocationControl(),
-		new MQA.MapCornerPlacement( MQA.MapCorner.TOP_RIGHT, new MQA.Size( 10,50 ) )
+		new MQA.MapCornerPlacement( MQA.MapCorner.TOP_RIGHT, new MQA.Size( 10,10 ) )
 	    );
 	    
 	    map.enableMouseWheelZoom();
