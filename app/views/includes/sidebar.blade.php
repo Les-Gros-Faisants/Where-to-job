@@ -11,7 +11,7 @@
       <i class="add icon"></i>
     </div>
   </a>
-  <a class="item" href="/">
+  <a class="item" href="/contact">
     <div style="vertical-align: center;">
       <i class="mail icon"></i>
     </div>
