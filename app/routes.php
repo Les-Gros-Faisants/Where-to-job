@@ -21,6 +21,11 @@ Route::get('/404', function()
 	return View::make('pages.404');
 });
 
+Route::get('/back', function()
+{
+	return Redirect::back();
+});
+
 Route::get('/location/{id?}/show', 'LocationController@show');
 Route::get('/location/{id}/edit', 'LocationController@edit');
 Route::post('/location/{id}/update',['as' => 'location.update', 'uses' => 'LocationController@Update']);

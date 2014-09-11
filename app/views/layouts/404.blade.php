@@ -9,7 +9,8 @@
 		</div>
 		<div class='description'>
 			<h2>This is not the page you're looking for.</h2>
-			<a href='/'>Go to homepage</a>
+			<a href='/'>Go to homepage</a> <br/>
+			<a href='/back'>Go back</a>
 		</div>
 	</body>
 </html>
