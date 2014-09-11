@@ -30,10 +30,12 @@ Route::get('/location/{id?}/show', 'LocationController@show');
 Route::get('/location/{id}/edit', 'LocationController@edit');
 Route::post('/location/{id}/update',['as' => 'location.update', 'uses' => 'LocationController@Update']);
 
-
 Route::get('/user/{id?}/show', 'UserController@show');
 Route::get('/user/{id}/edit', 'UserController@edit');
 Route::post('/user/{id}/update',['as' => 'user.update', 'uses' => 'UserController@Update']);
+
+Route::post('contact', 'UserController@send');
+//Route::post('/user/{id}/send', 'UserController@send');
 
 Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
 
