@@ -59,7 +59,6 @@ function load_map( string ) {
 	    map.enableMouseWheelZoom();
 	});
 	if ( string === 'nothing' ) {
-	    alert( 'enculer' );
 	    MQA.EventManager.addListener(window.map, 'click', addLocation);
 	}
     });   
