@@ -1,8 +1,9 @@
 @extends('layouts.default')
 @section('content')
 <div>
-  <div class="ui segment">
+  <div id="map_div" class="ui segment">
     <div id='map' class="ui item"></div>
+    <script>load_map('nothing')</script>
   </div>
   <div class="ui horizontal icon divider">
     <i class="search icon"></i>
