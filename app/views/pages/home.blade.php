@@ -1,9 +1,16 @@
 @extends('layouts.default')
 @section('content')
-  <div>
-    <div id="map_div" class="ui segment">
-      <div id='map' class="ui item"></div>
-    </div>
+<div>
+  <div id="map_div" class="ui segment">
+    <div id='map' style="overflow:hidden;width:750px;height:400px;position:relative;" class="ui item"></div>
+  </div>
+  <div class="ui horizontal icon divider">
+    <i class="search icon"></i>
+  </div>
+
+  <div id="searchbar" class="ui item">
+    <div class="ui fluid action input">
+      {{ Form::model(null, array('route' => array('location.search'))) }}
 
     <div id="searchbar" class="ui item">
       <div class="ui fluid action input">
