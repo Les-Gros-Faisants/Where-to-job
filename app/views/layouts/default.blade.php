@@ -1,28 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	@include('includes.head')
-</head>
-<body>
-	<div class="left_sidebar">
-		@include('includes.sidebar')
-	</div>
-	@include('includes.loginmodal')
-<div class="container">
+	<head>
+		@include('includes.head')
+	</head>
+	<body>
+		<div class="left_sidebar">
+			@include('includes.sidebar')
+		</div>
+		@include('includes.loginmodal')
+		<div class="container">
 
-	<header class="row">
-		@include('includes.header')
-	</header>
+			<header class="row">
+				@include('includes.header')
+			</header>
 
-	<div id="main" class="row">
+			<div id="main" class="row">
+					@yield('content')
+			</div>
 
-			@yield('content')
-	</div>
+			<footer class="row">
+				@include('includes.footer')
+			</footer>
 
-	<footer class="row">
-		@include('includes.footer')
-	</footer>
-
-</div>
-</body>
+		</div>
+	</body>
 </html>
