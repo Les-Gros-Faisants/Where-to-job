@@ -38,10 +38,10 @@ class LocationController extends BaseController {
 	{
 		$inputs = Input::except('_token');
 		$view = View::make('pages.home');
-		$view->withSearch($inputs);
-		// découper la search et effectuer le tri dans la db
-		return $view;
 
+		$view->locations = null;
+		
+		return $view;
 	}
 
 

@@ -15,4 +15,4 @@
 {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js') }}
 {{ HTML::script('http://cdn.bootcss.com/semantic-ui/0.16.1/javascript/semantic.js') }}
 
-<script>load_map('nothing')</script>
+<script>load_map('nothing');</script>
