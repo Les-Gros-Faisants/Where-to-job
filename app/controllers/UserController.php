@@ -98,5 +98,26 @@ class UserController extends \BaseController {
 		//
 	}
 
+	public function send()
+	{
+		$fromEmail = Input::get('email');
+    	$fromName = Input::get('username');
+    	$data = Input::get('message');
+    	$subject = 'Mail from where to job user';
+
+    	$toEmail = 'david.henner@epitech.eu';
+    	$toName = 'David Henner';
+
+	    Mail::send('emails.contact', array('data' =>  $data), function($message) use ($toEmail, $toName, $fromEmail, $fromName, $subject)
+    	{
+    		$message->to($toEmail, $toName)->subject($subject);
+//       		$message->to($toEmail, $toName);
+  	 		$message->from($fromEmail, $fromName);
+	//		$message->subject($subject);
+	    });
+
+		return Redirect::to('/');
+	}
+
 
 }
