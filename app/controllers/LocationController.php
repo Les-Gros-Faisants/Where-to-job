@@ -39,8 +39,8 @@ class LocationController extends BaseController {
 		$inputs = Input::except('_token');
 		$view = View::make('pages.home');
 
-		$view->locations = null;
-		
+		$view->locations = Location::where('city');
+
 		return $view;
 	}
 
