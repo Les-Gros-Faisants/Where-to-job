@@ -25,7 +25,7 @@ $columns = Schema::getColumnListing('users');
 @endforeach
 
 <div class="ui error form segment">
-	<div class="two fields">
+	<div class="three fields">
 		<div class="field">
 			{{ Form::label('First Name', 'First Name') }}
 			{{ Form::text('First Name', null, array('placeholder'=>'First Name')) }}
@@ -34,14 +34,20 @@ $columns = Schema::getColumnListing('users');
 			{{ Form::label('Last Name', 'Last Name') }}
 			{{ Form::text('Last Name', null, array('placeholder'=>'Last Name')) }}
 		</div>
+		<div class="field">
+			{{ Form::label('Username', 'Username') }}
+			{{ Form::text('Username', null, array('placeholder'=>'Username')) }}
+		</div>
 	</div>
-	<div class="field">
-		{{ Form::label('Username', 'Username') }}
-		{{ Form::text('Username', null, array('placeholder'=>'Username')) }}
-	</div>
-	<div class="field">
-		{{ Form::label('Password', 'Password') }}
-		{{ Form::password('Password', null, array('placeholder'=>'Password')) }}
+	<div class="two fields">
+		<div class="field">
+			{{ Form::label('Password', 'Password') }}
+			{{ Form::password('Password', null, array('placeholder'=>'Password')) }}
+		</div>
+		<div class="field">
+			{{ Form::label('Email', 'Email') }}
+			{{ Form::email('Email', $value = null, $attributes = array('placeholder'=>'Email')) }}
+		</div>
 	</div>
 	<div class="three fields">
 		<div class="field">
@@ -58,14 +64,10 @@ $columns = Schema::getColumnListing('users');
 		</div>
 	</div>
 	<div class="field">
-		{{ Form::label('Email', 'Email') }}
-		{{ Form::email('Email', $value = null, $attributes = array('placeholder'=>'Email')) }}
-	</div>
-	<div class="field">
 		{{ Form::label('Infos', 'Infos') }}
 		{{ Form::textarea('Infos', null, array('placeholder'=>'Infos')) }}
 	</div>
-		<div class="field">
+	<div class="field">
 		{{ Form::label('Photo', 'Photo') }}
 		{{ Form::file('Photo', $attributes = array()) }}
 	</div>
