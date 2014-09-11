@@ -1,4 +1,11 @@
 function load_map( string ) {
+    
+    function addLocation( event ) {
+	var lat = event.ll.getLatitude();
+	var lng = event.ll.getLongitude();
+	alert( lat+' '+lng );
+    }
+
     MQA.EventUtil.observe( window, 'load', function() {
 	
 	$( '#map' ).css( 'width', $( '#map_div' ).width() - 30);
@@ -44,11 +51,10 @@ function load_map( string ) {
 	    );
 	    
 	    map.enableMouseWheelZoom();
-
-	    if ( string === 'nothing' ) {
-		alert( 'enculer' );
-	    }
-
 	});
+	if ( string === 'nothing' ) {
+	    alert( 'enculer' );
+	    MQA.EventManager.addListener(window.map, 'click', addLocation);
+	}
     });   
 }
