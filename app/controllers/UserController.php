@@ -93,6 +93,17 @@ class UserController extends \BaseController {
 
 	public function send()
 	{
+		$validation = Validator::make(
+			['username' => Input::get('username'), 'email' => Input::get('email'), 'message' => Input::get('message')],
+			['username' => 'required', 'email' => 'required', 'message' => 'required']);
+
+		if ($validation->fails())
+		{
+			return Redirect::back()->withInput()->withErrors($validation->messages());
+		}
+
+		else
+		{
 		$fromEmail = Input::get('email');
     	$fromName = Input::get('username');
     	$data = Input::get('message');
@@ -108,6 +119,7 @@ class UserController extends \BaseController {
   	 		$message->from($fromEmail, $fromName);
 	//		$message->subject($subject);
 	    });
+		}
 
 		return Redirect::to('/');
 	}
