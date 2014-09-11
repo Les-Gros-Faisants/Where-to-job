@@ -18,7 +18,7 @@ function load_map( string ) {
 	    mtype: 'map'
 	};
 	window.map = new MQA.TileMap( option );
-	
+		
 	navigator.geolocation.getCurrentPosition( function( position ) {
 	    var user = new MQA.Poi({
 		lat: position.coords.latitude,
@@ -44,6 +44,11 @@ function load_map( string ) {
 	    );
 	    
 	    map.enableMouseWheelZoom();
+
+	    if ( string === 'nothing' ) {
+		alert( 'enculer' );
+	    }
+
 	});
     });   
 }
