@@ -32,7 +32,15 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-		$max = User::max('id');
+		$newUser = new User;
+		$inputs = Input::except('_token');
+		Input::replace(array('password' => Hash::make(Input::get('password'))));
+		$inputs = array_filter($inputs, 'strlen');
+		$newUser->update($inputs);
+
+		$user_id = $newUser->id;
+		$user = User::where('id', '=', $user_id)->get();
+		return Redirect::to('/user/' . $user_id . '/show');
 	}
 
 	/**
