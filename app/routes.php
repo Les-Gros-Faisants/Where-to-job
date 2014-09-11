@@ -36,7 +36,6 @@ Route::get('/location/{id?}/show', 'LocationController@show');
 Route::get('/location/{id}/edit', 'LocationController@edit');
 Route::post('/location/{id}/update',['as' => 'location.update', 'uses' => 'LocationController@Update']);
 
-<<<<<<< HEAD
 Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
 
 /*
