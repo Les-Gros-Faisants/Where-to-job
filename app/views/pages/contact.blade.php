@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 	<h1>Contact us</h1>
-	{{ Form::open(array('url' => 'contact')) }}
+	{{ Form::open(array('url' => 'contact/send')) }}
 	<div class="ui fluid action input">
 	<div>
 		<div class="ui pointing right label">
@@ -10,7 +10,7 @@
 		<div class="ui input">
 			{{ Form::text('username') }}	
 		</div>
-			{{ $errors->first('username', '<span class="ui red label">:message</span>') }}
+			{{ $errors->first('username', '<span class="ui orange label">:message</span>') }}
 	</div>
 	<br/>
 	<div>
@@ -20,7 +20,7 @@
 		<div class="ui input">
     		{{ Form::text('email') }}
 		</div>
-		{{ $errors->first('email', '<span class="ui red label">:message</span>') }}
+		{{ $errors->first('email', '<span class="ui orange label">:message</span>') }}
 	</div>
 	<br/>
 	<div class="ui form">
@@ -28,7 +28,7 @@
 			{{ Form::textarea('message') }}
 		</div>
 	</div>
-	{{ $errors->first('message', '<span class="ui red label">:message</span>') }}
+	{{ $errors->first('message', '<span class="ui orange label">:message</span>') }}
 	</div>
 	<br/>
 	{{ Form::button('send', array('type' => 'submit', 'class' => 'ui blue submit button')) }}

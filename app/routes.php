@@ -52,11 +52,10 @@ Route::get('/user/{id}/edit', 'UserController@edit');
 Route::get('/user/create',['as' => 'user.create', 'uses' => 'UserController@Create']);
 
 Route::post('contact', 'UserController@send');
-//Route::post('/user/{id}/send', 'UserController@send');
 
 Route::post('/',['as' => 'location.search', 'uses' => 'LocationController@Search']);
 
 Route::post('/user/{id}/update',['as' => 'user.update', 'uses' => 'UserController@Update']);
 Route::post('/user/store',['as' => 'user.store', 'uses' => 'UserController@Store']);
 
-//Route::controller('/', 'HomeController');
+Route::controller('/', 'HomeController');
