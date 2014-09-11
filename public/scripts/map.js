@@ -9,8 +9,8 @@ function load_map( string ) {
     	    );
 	    console.log( $("#map_div").width() + ' ' + $( '#map' ).width() );
     	    window.map.setSize( resize_map );
-	}
-	
+	}    
+
 	var option = {
 	    elt: document.getElementById( 'map' ),
 	    zoom: 15,
@@ -20,10 +20,15 @@ function load_map( string ) {
 	window.map = new MQA.TileMap( option );
 	
 	navigator.geolocation.getCurrentPosition( function( position ) {
+	    var user = new MQA.Poi({
+		lat: position.coords.latitude,
+		lng: position.coords.longitude
+	    });
 	    map.setCenter ({
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	    });
+	    map.addShape(user);
 	});
 	
 	MQA.withModule( 'smallzoom', 'geolocationcontrol', 'mousewheel', function() {
