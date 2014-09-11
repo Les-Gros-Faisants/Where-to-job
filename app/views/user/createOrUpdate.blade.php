@@ -28,44 +28,44 @@ $columns = Schema::getColumnListing('users');
 	<div class="three fields">
 		<div class="field">
 			{{ Form::label('First Name', 'First Name') }}
-			{{ Form::text('First Name', null, array('placeholder'=>'First Name')) }}
+			{{ Form::text('First Name', null, array('placeholder'=>$user[0]->'First Name')) }}
 		</div>
 		<div class="field">
 			{{ Form::label('Last Name', 'Last Name') }}
-			{{ Form::text('Last Name', null, array('placeholder'=>'Last Name')) }}
+			{{ Form::text('Last Name', null, array('placeholder'=>$user[0]->'Last Name')) }}
 		</div>
 		<div class="field">
 			{{ Form::label('Username', 'Username') }}
-			{{ Form::text('Username', null, array('placeholder'=>'Username')) }}
+			{{ Form::text('Username', null, array('placeholder'=>$user[0]->'Username')) }}
 		</div>
 	</div>
 	<div class="two fields">
 		<div class="field">
 			{{ Form::label('Password', 'Password') }}
-			{{ Form::password('Password', null, array('placeholder'=>'Password')) }}
+			{{ Form::password('Password', null, array('placeholder'=>$user[0]->'Password')) }}
 		</div>
 		<div class="field">
 			{{ Form::label('Email', 'Email') }}
-			{{ Form::email('Email', $value = null, $attributes = array('placeholder'=>'Email')) }}
+			{{ Form::email('Email', $value = null, $attributes = array('placeholder'=>$user[0]->'Email')) }}
 		</div>
 	</div>
 	<div class="three fields">
 		<div class="field">
 			{{ Form::label('Adress', 'Adress') }}
-			{{ Form::text('Adress', null, array('placeholder'=>'Adress')) }}
+			{{ Form::text('Adress', null, array('placeholder'=>$user[0]->'Adress')) }}
 		</div>
 		<div class="field">
 			{{ Form::label('City', 'City') }}
-			{{ Form::text('City', null, array('placeholder'=>'City')) }}
+			{{ Form::text('City', null, array('placeholder'=>$user[0]->'City')) }}
 		</div>
 		<div class="field">
 			{{ Form::label('Job', 'Job') }}
-			{{ Form::text('Job', null, array('placeholder'=>'Job')) }}
+			{{ Form::text('Job', null, array('placeholder'=>$user[0]->'Job')) }}
 		</div>
 	</div>
 	<div class="field">
 		{{ Form::label('Infos', 'Infos') }}
-		{{ Form::textarea('Infos', null, array('placeholder'=>'Infos')) }}
+		{{ Form::textarea('Infos', null, array('placeholder'=>$user[0]->'Infos')) }}
 	</div>
 	<div class="field">
 		{{ Form::label('Photo', 'Photo') }}
