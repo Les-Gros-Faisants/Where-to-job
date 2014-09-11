@@ -2,8 +2,7 @@
 @section('content')
 <div>
   <div id="map_div" class="ui segment">
-    <div id='map' class="ui item"></div>
-    <script>load_map('nothing')</script>
+    <div id='map' style="overflow:hidden;width:750px;height:400px;position:relative;" class="ui item"></div>
   </div>
   <div class="ui horizontal icon divider">
     <i class="search icon"></i>
