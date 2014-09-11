@@ -2,15 +2,13 @@ function load_map( string ) {
 
 MQA.EventUtil.observe( window, 'load', function() {
 
-//    document.getElementById( 'map' ).style.width = window.innerWidth + 'px';
-
+    $( '#map' ).css( 'width', $( '#map_div' ).width() );
     window.onresize = function( event ) {
-	//	document.getElementById( 'map' ).style.width = window.innerWidth + 'px';
     	var resize_map = new MQA.Size (
-    	    document.getElementById( 'map' ).style.width,
-    	    document.getElementById( 'map' ).style.height
+    	    $( '#map_div' ).width(),
+	    $( '#map_div' ).height()
     	);
-    	console.log( 'div pixel = ' + document.getElementById( 'map' ).style.width );
+	console.log( $("#map_div").width() + ' ' + $( '#map' ).width() );
     	window.map.setSize( resize_map );
     }
 
