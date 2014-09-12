@@ -100,21 +100,34 @@ class UserController extends \BaseController {
 
 	public function send()
 	{
+		$validation = Validator::make(
+			['username' => Input::get('username'), 'email' => Input::get('email'), 'message' => Input::get('message')],
+			['username' => 'required', 'email' => 'required', 'message' => 'required']);
+
+		if ($validation->fails())
+		{
+			return Redirect::back()->withInput()->withErrors($validation->messages());
+		}
+
+		else
+		{
 		$fromEmail = Input::get('email');
     	$fromName = Input::get('username');
     	$data = Input::get('message');
-    	$subject = 'Mail from where to job user';
+    	$subject = 'Mail from whereToJob user';
 
-    	$toEmail = 'david.henner@epitech.eu';
-    	$toName = 'David Henner';
+    	$toEmail = 'nrdav@hotmail.fr';
+    	$toName = 'Julien Ganichot';
 
-	    Mail::send('emails.contact', array('data' =>  $data), function($message) use ($toEmail, $toName, $fromEmail, $fromName, $subject)
+	    Mail::send('emails.contact', array('data' =>  $data, 'name' => $fromName, 'email' => $fromEmail),
+	    	function($message) use ($toEmail, $toName, $fromEmail, $fromName, $subject)
     	{
     		$message->to($toEmail, $toName)->subject($subject);
 //       		$message->to($toEmail, $toName);
   	 		$message->from($fromEmail, $fromName);
 	//		$message->subject($subject);
 	    });
+		}
 
 		return Redirect::to('/');
 	}

@@ -1,11 +1,35 @@
+function addLocation( event ) {
+    var lat = event.ll.getLatitude();
+    var lng = event.ll.getLongitude();
+    alert( lat+' '+lng );
+}
+
+function custom_find_me( map ) {
+    var custom_fm = document.createElement( 'div' );
+
+    custom_fm.id = 'fm_control';
+    custom_fm.style.position = 'absolute';
+    custom_fm.style.zIndex = '50';
+    custom_fm.style.width = '20px';
+    custom_fm.style.height = '42px';
+    custom_fm.style.top = '5px';
+    custom_fm.style.right = '2px';
+    custom_fm.style.backgroundImage = "url('../assets/images/waving_man_sat.png')";
+    custom_fm.style.backgroundRepeat = 'no-repeat';
+    document.getElementById( 'map' ).appendChild( custom_fm );
+
+    custom_fm.onclick = function() {
+	navigator.geolocation.getCurrentPosition( function( position ) {
+	    map.setCenter ({
+		lat: position.coords.latitude,
+		lng: position.coords.longitude
+	    });
+	});
+    }
+}
+
 function load_map( string ) {
     
-    function addLocation( event ) {
-	var lat = event.ll.getLatitude();
-	var lng = event.ll.getLongitude();
-	alert( lat+' '+lng );
-    }
-
     MQA.EventUtil.observe( window, 'load', function() {
 	
 	$( '#map' ).css( 'width', $( '#map_div' ).width() - 30);
@@ -51,10 +75,12 @@ function load_map( string ) {
 		new MQA.MapCornerPlacement( MQA.MapCorner.TOP_LEFT, new MQA.Size( 5,5 ) )
 	    );
 	    
-	    map.addControl(
-		new MQA.GeolocationControl(),
-		new MQA.MapCornerPlacement( MQA.MapCorner.TOP_RIGHT, new MQA.Size( 10,10 ) )
-	    );
+	    // map.addControl(
+	    // 	new MQA.GeolocationControl(),
+	    // 	new MQA.MapCornerPlacement( MQA.MapCorner.TOP_RIGHT, new MQA.Size( 10,10 ) )
+	    // );
+
+	    custom_find_me( map );
 	    
 	    map.enableMouseWheelZoom();
 	});
