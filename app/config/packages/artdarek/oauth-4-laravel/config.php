@@ -1,7 +1,7 @@
-<?php 
+<?php
 
-return array( 
-	
+return array(
+
 	/*
 	|--------------------------------------------------------------------------
 	| oAuth Config
@@ -11,7 +11,7 @@ return array(
 	/**
 	 * Storage
 	 */
-	'storage' => 'Session', 
+	'storage' => 'Session',
 
 	/**
 	 * Consumers
@@ -25,7 +25,7 @@ return array(
             'client_id'     => '788192857869193',
             'client_secret' => 'e29e7ff40607ad0bc73d2c4240517d0e',
             'scope'         => array('email'),
-        ),		
+        ),
 
 	)
 
