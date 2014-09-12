@@ -1,6 +1,8 @@
 #main_header
 {
   font-family: 'Rambla', sans-serif;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .title
@@ -13,7 +15,4 @@
 .container
 {
   font-family: 'Rambla', sans-serif;
-  padding: auto;
-  margin: auto;
-  width: 75%;
 }
