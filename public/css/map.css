@@ -1,12 +1,10 @@
 #map_div
 {
   margin: 0 auto;
-  padding: auto;
 }
 
 #map
 {
-  margin: 0;
   overflow: hidden;
   height:400px;
   position: relative;
