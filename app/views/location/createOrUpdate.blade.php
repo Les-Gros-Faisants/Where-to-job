@@ -2,7 +2,7 @@
 @section('content')
 EDIT LOCATION
 <?php
-// get all columns from user table
+// get all columns from location table
  $columns = Schema::getColumnListing('locations');
 ?>
 @if (isset($location))

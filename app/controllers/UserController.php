@@ -135,7 +135,7 @@ class UserController extends \BaseController {
 		}
 
 		return Redirect::to('/');
-	}
+	} 
 	/**
 	 *
 	 * Try to login the user
@@ -172,5 +172,10 @@ class UserController extends \BaseController {
 				else
 					return Redirect::to('/');
 			}
+		}
+		public function logout()
+		{
+			Auth::logout();
+			return Redirect::to('/');
 		}
 	}

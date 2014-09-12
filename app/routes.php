@@ -35,7 +35,7 @@ Route::get('/back', function()
 Route::get('/location/{id?}/show', 'LocationController@show');
 Route::get('/location/{id}/edit', 'LocationController@edit');
 
-Route::get('/location/create',['as' => 'user.create', 'uses' => 'LocationController@Create']);
+Route::get('/location/create',['as' => 'location.create', 'uses' => 'LocationController@Create']);
 Route::post('/location/{id}/update',['as' => 'location.update', 'uses' => 'LocationController@Update']);
 Route::post('/location/store',['as' => 'location.store', 'uses' => 'LocationController@Store']);
 
@@ -46,6 +46,7 @@ Route::post('/location/store',['as' => 'location.store', 'uses' => 'LocationCont
 
 // route to process the form
 Route::post('/user/login', array('uses' => 'UserController@Login'));
+Route::get('/user/logout', array('uses' => 'UserController@Logout'));
 
 Route::get('/user/{id?}/show', 'UserController@show');
 Route::get('/user/{id}/edit', 'UserController@edit');

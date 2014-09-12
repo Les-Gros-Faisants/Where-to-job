@@ -1,5 +1,5 @@
 
-<a id="logoutbutton" class="item">
+<a href="/user/logout" id="logoutbutton" class="item">
 	<div style="vertical-align: center;">
 		<i class="sign out icon"></i>
 	</div>
