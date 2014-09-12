@@ -34,10 +34,9 @@
       <div class="center aligned column">
         <li style="list-style:none;margin-left:0;padding-left:0;">
           <ul>
-            <div class="ui facebook button" style="width: 100%">
-              <i class="facebook icon"></i>
-              Facebook
-            </div>
+          <a href='/user/loginFB'>
+          {{Form::button('<i class="facebook icon"></i>facebook', array('class'=>'ui facebook button', 'style'=>'width: 100%'))}}
+          </a>
           </ul>
           <ul>
             <div class="ui twitter button" style="width: 100%">

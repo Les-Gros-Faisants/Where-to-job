@@ -45,11 +45,13 @@ Route::post('/location/store',['as' => 'location.store', 'uses' => 'LocationCont
 */
 
 // route to process the form
+Route::get('/user/loginFB', array('uses' => 'UserController@Login'));
 Route::post('/user/login', array('uses' => 'UserController@Login'));
 Route::get('/user/logout', array('uses' => 'UserController@Logout'));
 
 Route::get('/user/{id?}/show', 'UserController@show');
 Route::get('/user/{id}/edit', 'UserController@edit');
+
 
 
 Route::get('/user/create',['as' => 'user.create', 'uses' => 'UserController@Create']);

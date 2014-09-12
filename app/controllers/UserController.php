@@ -173,6 +173,25 @@ class UserController extends \BaseController {
 					return Redirect::to('/');
 			}
 		}
+
+		public function loginFB() {
+			$code = Input::get( 'code' );
+			$fb = OAuth::consumer( 'Facebook' );
+
+			if ( !empty( $code ) ) {
+				$token = $fb->requestAccessToken( $code );
+				$result = json_decode( $fb->request( '/me' ), true );
+				$message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
+				echo $message. "<br/>";
+				dd($result);
+			}
+			else {
+				$url = $fb->getAuthorizationUri();
+				return Redirect::to( (string)$url );
+			}
+
+		}
+
 		public function logout()
 		{
 			Auth::logout();
