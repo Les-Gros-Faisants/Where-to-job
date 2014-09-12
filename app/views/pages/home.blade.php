@@ -23,7 +23,7 @@
           </div>
           <br/>
           <div class="ui fluid left icon input">
-            {{ Form::text('ambience', null, array('placeholder'=>'Ambience...', 'id' => 'ambience_field', 'disabled' => 'disabled')) }}
+            {{ Form::text('ambience', null, array('placeholder'=>'Ambience...', 'id' => 'ambience_field')) }}
             <i class="glass icon"></i>
           </div>
           <br/>
