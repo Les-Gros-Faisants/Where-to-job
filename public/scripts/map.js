@@ -1,3 +1,5 @@
+var g_pois = [];
+
 function addLocation( event ) {
     var lat = event.ll.getLatitude();
     var lng = event.ll.getLongitude();
@@ -35,33 +37,36 @@ function add_pois( response ) {
     // this way we can delete the shit when we're done
     // map.removeShape( map.getByKey( 'key' ) );
 
+    console.log( response );
     for ( var i = 0; i < response.lenght; i++ ) {
 	var coords = response[i].locations[0];
+	
+	
+	console.log( 'lat = ' + coords.latLng.lat + ' lng = ' + coords.latLng.lng );
 
-	var poi = new MQA.Poi({
+	g_pois[i] = new MQA.Poi({
 	    lat: coords.latLng.lat,
 	    lng: coords.latLng.lng
 	});
-	poi.key = i;
+	g_pois[i].key = i;
     }
 }
 
 function handle_search( json_array ) {
     //call to geocode webservice
 
-    var url = 'http://www.mapquestapi.com/geocoding/v1/batch?key=Fmjtd%7Cluur2h612h%2Cra%3Do5-9wan50&callback=add_pois&location=LOCATION_HERE&maxResults=1';
+    var url = 'http://www.mapquestapi.com/geocoding/v1/batch?key=Fmjtd%7Cluur2h612h%2Cra%3Do5-9wan50&callback=add_poisLOCATION_HERE&maxResults=1';
     // location format = &location=addr&location=addr etc...
     // ie: &location=9 rue adoplhe seyboth strasbourg france&location=4 rue du dome strasbourg france...
     var locations = '';
 
     for ( var i = 0; i < json_array.length; i++ ) {
-	console.log( json_array[i].location );
-
 	locations = locations + '&location=' + json_array[i].location;
     }
 
     console.log( locations );
     var new_url = url.replace( 'LOCATION_HERE', locations );
+    console.log( new_url );
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = new_url;
@@ -69,6 +74,10 @@ function handle_search( json_array ) {
 }
 
 function load_map( string_or_array ) {
+    
+    if ( string_or_array instanceof Array ) {
+	handle_search( string_or_array );
+    }
 
     MQA.EventUtil.observe( window, 'load', function() {
 
@@ -78,7 +87,6 @@ function load_map( string_or_array ) {
     		$( '#map_div' ).width(),
 		$( '#map_div' ).height()
     	    );
-	    console.log( $("#map_div").width() + ' ' + $( '#map' ).width() );
     	    window.map.setSize( resize_map );
 	}
 
@@ -119,11 +127,9 @@ function load_map( string_or_array ) {
 
 	    map.enableMouseWheelZoom();
 	});
+
 	if ( string_or_array === 'nothing' ) {
 	    MQA.EventManager.addListener(window.map, 'click', addLocation);
-	} else if ( Object.prototype.toString.call( string_or_array ) === '[object Array]' ) {
-	    alert( 'Array!' );
-	    handle_search( string_and_array );
 	}
     });
 }
