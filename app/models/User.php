@@ -22,7 +22,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
   protected $hidden = array('password', 'remember_token');
 
 
-  public function update(Array $attributes = array())
+  public function updateFull(Array $attributes = array())
   {
     foreach($attributes as $key => $value)
       $this->{$key} = $value;

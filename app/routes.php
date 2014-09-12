@@ -44,6 +44,8 @@ Route::post('/location/store',['as' => 'location.store', 'uses' => 'LocationCont
 ** USER
 */
 
+// route to process the form
+Route::post('/user/login', array('uses' => 'UserController@Login'));
 
 Route::get('/user/{id?}/show', 'UserController@show');
 Route::get('/user/{id}/edit', 'UserController@edit');

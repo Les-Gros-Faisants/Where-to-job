@@ -5,8 +5,9 @@
       <div class="column">
         <div class="ui form segment">
           <div class="field">
+            {{ Form::open(array('url' => '/user/login')) }}         
             <div class="ui left labeled icon input">
-              <input type="text" placeholder="Username">
+              {{ Form::text('email', Input::old('email'), array('placeholder' => 'Email')) }}
               <i class="user icon"></i>
               <div class="ui corner label">
                 <i class="asterisk icon"></i>
@@ -15,14 +16,16 @@
           </div>
           <div class="field">
             <div class="ui left labeled icon input">
-              <input type="password">
+              {{ Form::password('password', array('placeholder' => 'Password')) }}
               <i class="lock icon"></i>
               <div class="ui corner label">
                 <i class="asterisk icon"></i>
               </div>
             </div>
           </div>
-          <div class="ui blue submit button">Login</div>
+
+          {{ Form::submit('Submit!', array('class'=>'ui blue submit button')) }}
+          {{ Form::close() }}
         </div>
       </div>
       <div class="ui vertical divider">
@@ -49,9 +52,9 @@
             </div>          
           </ul>
           <ul>
-          <a href='/user/create'>
-          {{ Form::button('<i class="signup icon"></i> Sign up' ,['type' => 'submit', 'class' => 'medium green ui icon button', 'style' => 'width:100%'])  }}
-          </a>
+            <a href='/user/create'>
+              {{ Form::button('<i class="signup icon"></i> Sign up' ,['type' => 'submit', 'class' => 'medium green ui icon button', 'style' => 'width:100%'])  }}
+            </a>
           </ul>
         </li>
       </div>

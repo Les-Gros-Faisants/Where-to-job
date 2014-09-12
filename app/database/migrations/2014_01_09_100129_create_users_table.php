@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration {
 				$table->string('city');
 				$table->string('job');
 				$table->longtext('infos');
+				$table->rememberToken();
 				});
 	}
 
