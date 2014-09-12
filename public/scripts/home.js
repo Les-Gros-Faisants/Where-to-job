@@ -11,7 +11,7 @@ $( document ).ready(function()
   {
     if (!$moved)
     {
-      $('#searchbar').animate({ marginLeft: "-=27%", width: "-=10%" }, "slow",
+      $('#searchbar').animate({ marginLeft: "-=32%", width: "-=10%" }, "slow",
       function() {
           $.post(
             $( this ).prop( 'action' ),
