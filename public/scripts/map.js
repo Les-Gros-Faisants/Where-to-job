@@ -28,19 +28,47 @@ function custom_find_me( map ) {
     }
 }
 
-function add_pois( json ) {
-    var object = JSON.parse( json );
-
-    // generate poi's and associate an id ie: 
+function add_pois( response ) {
+    // generate poi's and associate an id
     // var machin = new MQA.Poi();
     // machin.Key = 'key';
     // this way we can delete the shit when we're done
     // map.removeShape( map.getByKey( 'key' ) );
 
-    
+    for ( var i = 0; i < response.lenght; i++ ) {
+	var coords = response[i].locations[0];
+	
+	var poi = new MQA.Poi({
+	    lat: coords.latLng.lat,
+	    lng: coords.latLng.lng
+	});
+	poi.key = i;
+    }
 }
 
-function load_map( string ) {
+function add_pois( json_array ) {
+    //call to geocode webservice
+
+    var url = 'http://www.mapquestapi.com/geocoding/v1/batch?key=Fmjtd%7Cluur2h612h%2Cra%3Do5-9wan50&callback=add_pois&location=LOCATION_HERE&maxResults=1';
+    // location format = &location=addr&location=addr etc...
+    // ie: &location=9 rue adoplhe seyboth strasbourg france&location=4 rue du dome strasbourg france...
+    var locations = '';
+    
+    for ( var i = 0; i < json_array.length; i++ ) {
+	console.log( json_array[i].location );
+	
+	locations = locations + '&location=' + json_array[i].location;
+    }
+    
+    console.log( locations );
+    var new_url = url.replace( 'LOCATION_HERE', locations );
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.src = new_url;
+    document.body.appendChild( script );
+}
+
+function load_map( string_or_array ) {
     
     MQA.EventUtil.observe( window, 'load', function() {
 	
@@ -91,7 +119,7 @@ function load_map( string ) {
 	    
 	    map.enableMouseWheelZoom();
 	});
-	if ( string === 'nothing' ) {
+	if ( string_or_array === 'nothing' ) {
 	    MQA.EventManager.addListener(window.map, 'click', addLocation);
 	}
     });   
