@@ -38,17 +38,15 @@ function add_pois( response ) {
     // map.removeShape( map.getByKey( 'key' ) );
 
     console.log( response );
-    for ( var i = 0; i < response.lenght; i++ ) {
-	var coords = response[i].locations[0];
-	
-	
-	console.log( 'lat = ' + coords.latLng.lat + ' lng = ' + coords.latLng.lng );
+    for ( var i = 0; i < response.results.length; i++ ) {
+	console.log( response.results[i].locations[0].displayLatLng.lat );
 
 	g_pois[i] = new MQA.Poi({
-	    lat: coords.latLng.lat,
-	    lng: coords.latLng.lng
+	    lat: response.results[i].locations[0].displayLatLng.lat,
+	    lng: response.results[i].locations[0].displayLatLng.lng
 	});
 	g_pois[i].key = i;
+	map.addShape( g_pois[i] );
     }
 }
 
@@ -61,7 +59,7 @@ function handle_search( json_array ) {
     var locations = '';
 
     for ( var i = 0; i < json_array.length; i++ ) {
-	locations = locations + '&location=' + json_array[i].location + ' ' + json_array[i].city;
+	locations = locations + '&location=' + json_array[i].location + ' ' + json_array[i].city + ' france';
     }
 
     console.log( locations );
@@ -81,7 +79,7 @@ function load_map( string_or_array ) {
 
     MQA.EventUtil.observe( window, 'load', function() {
 
-	$( '#map' ).css( 'width', $( '#map_div' ).width() - 22 );
+	$( '#map' ).css( 'width', $( '#map_div' ).width() - 2 );
 	window.onresize = function( event ) {
     	    var resize_map = new MQA.Size (
     		$( '#map_div' ).width(),
@@ -96,6 +94,7 @@ function load_map( string_or_array ) {
 	    latLng: { lat: 48.503121, lng: 6.058019 },
 	    mtype: 'map'
 	};
+
 	window.map = new MQA.TileMap( option );
 
 	navigator.geolocation.getCurrentPosition( function( position ) {
@@ -131,5 +130,6 @@ function load_map( string_or_array ) {
 	if ( string_or_array === 'nothing' ) {
 	    MQA.EventManager.addListener(window.map, 'click', addLocation);
 	}
+
     });
 }
