@@ -56,6 +56,7 @@ $( document ).ready(function()
               });
               // Send locationsJSONObjects to map
               load_map(locationsJSONObjects);
+              alert("Load map called!");
             },
             'json'
           );
