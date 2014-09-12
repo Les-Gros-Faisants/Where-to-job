@@ -20,6 +20,11 @@ $( document ).ready(function()
             },
             function(data)
             {
+              if (data.length < 1)
+                {
+                  alert("No result");
+                  return (false);
+                }
               var i = 0;
               var locationsJSONObjects = [];
               data.forEach(function(item) {

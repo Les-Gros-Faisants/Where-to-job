@@ -1,7 +1,10 @@
 @extends('layouts.default')
 @section('content')
 <div>
-    <div id="map_div">
+    <div id="map_div" class="ui segment">
+      <div id="map_loader" class="ui active dimmer">
+          <div class="ui text loader">Localisation in progress..</div>
+      </div>
       <div id="map"></div>
     </div>
 
