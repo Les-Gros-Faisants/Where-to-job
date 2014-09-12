@@ -46,7 +46,7 @@ function add_pois( response ) {
     }
 }
 
-function add_pois( json_array ) {
+function handle_search( json_array ) {
     //call to geocode webservice
 
     var url = 'http://www.mapquestapi.com/geocoding/v1/batch?key=Fmjtd%7Cluur2h612h%2Cra%3Do5-9wan50&callback=add_pois&location=LOCATION_HERE&maxResults=1';
@@ -121,6 +121,9 @@ function load_map( string_or_array ) {
 	});
 	if ( string_or_array === 'nothing' ) {
 	    MQA.EventManager.addListener(window.map, 'click', addLocation);
+	} else if ( Object.prototype.toString.call( string_or_array ) === '[object Array]' ) {
+	    alert( 'Array!' );
+	    handle_search( string_and_array );
 	}
     });
 }
