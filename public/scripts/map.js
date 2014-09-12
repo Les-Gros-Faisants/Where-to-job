@@ -1,7 +1,7 @@
 function addLocation( event ) {
     var lat = event.ll.getLatitude();
     var lng = event.ll.getLongitude();
-    alert( lat+' '+lng );
+    console.log( lat+' '+lng );
 }
 
 function custom_find_me( map ) {
@@ -37,7 +37,7 @@ function add_pois( response ) {
 
     for ( var i = 0; i < response.lenght; i++ ) {
 	var coords = response[i].locations[0];
-	
+
 	var poi = new MQA.Poi({
 	    lat: coords.latLng.lat,
 	    lng: coords.latLng.lng
@@ -53,13 +53,13 @@ function add_pois( json_array ) {
     // location format = &location=addr&location=addr etc...
     // ie: &location=9 rue adoplhe seyboth strasbourg france&location=4 rue du dome strasbourg france...
     var locations = '';
-    
+
     for ( var i = 0; i < json_array.length; i++ ) {
 	console.log( json_array[i].location );
-	
+
 	locations = locations + '&location=' + json_array[i].location;
     }
-    
+
     console.log( locations );
     var new_url = url.replace( 'LOCATION_HERE', locations );
     var script = document.createElement( 'script' );
@@ -69,9 +69,9 @@ function add_pois( json_array ) {
 }
 
 function load_map( string_or_array ) {
-    
+
     MQA.EventUtil.observe( window, 'load', function() {
-	
+
 	$( '#map' ).css( 'width', $( '#map_div' ).width() - 22 );
 	window.onresize = function( event ) {
     	    var resize_map = new MQA.Size (
@@ -80,7 +80,7 @@ function load_map( string_or_array ) {
     	    );
 	    console.log( $("#map_div").width() + ' ' + $( '#map' ).width() );
     	    window.map.setSize( resize_map );
-	}    
+	}
 
 	var option = {
 	    elt: document.getElementById( 'map' ),
@@ -89,7 +89,7 @@ function load_map( string_or_array ) {
 	    mtype: 'map'
 	};
 	window.map = new MQA.TileMap( option );
-		
+
 	navigator.geolocation.getCurrentPosition( function( position ) {
 	    var user = new MQA.Poi({
 		lat: position.coords.latitude,
@@ -107,20 +107,20 @@ function load_map( string_or_array ) {
 	    });
 	    map.addShape(user);
 	});
-	
+
 	MQA.withModule( 'smallzoom', 'mousewheel', function() {
-	    
+
 	    map.addControl(
 		new MQA.SmallZoom(),
 		new MQA.MapCornerPlacement( MQA.MapCorner.TOP_LEFT, new MQA.Size( 5,5 ) )
 	    );
-	    
+
 	    custom_find_me( map );
-	    
+
 	    map.enableMouseWheelZoom();
 	});
 	if ( string_or_array === 'nothing' ) {
 	    MQA.EventManager.addListener(window.map, 'click', addLocation);
 	}
-    });   
+    });
 }
