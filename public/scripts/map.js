@@ -9,9 +9,9 @@ function custom_find_me( map ) {
 
     custom_fm.id = 'fm_control';
     custom_fm.style.position = 'absolute';
-    custom_fm.style.zIndex = '50';
-    custom_fm.style.width = '20px';
-    custom_fm.style.height = '42px';
+    custom_fm.style.zIndex = '50px';
+    custom_fm.style.width = '25px';
+    custom_fm.style.height = '25px';
     custom_fm.style.top = '5px';
     custom_fm.style.right = '2px';
     custom_fm.style.backgroundImage = "url('../assets/images/waving_man_sat.png')";
@@ -28,11 +28,23 @@ function custom_find_me( map ) {
     }
 }
 
+function add_pois( json ) {
+    var object = JSON.parse( json );
+
+    // generate poi's and associate an id ie: 
+    // var machin = new MQA.Poi();
+    // machin.Key = 'key';
+    // this way we can delete the shit when we're done
+    // map.removeShape( map.getByKey( 'key' ) );
+
+    
+}
+
 function load_map( string ) {
     
     MQA.EventUtil.observe( window, 'load', function() {
 	
-	$( '#map' ).css( 'width', $( '#map_div' ).width() - 30);
+	$( '#map' ).css( 'width', $( '#map_div' ).width() - 22 );
 	window.onresize = function( event ) {
     	    var resize_map = new MQA.Size (
     		$( '#map_div' ).width(),
@@ -68,18 +80,13 @@ function load_map( string ) {
 	    map.addShape(user);
 	});
 	
-	MQA.withModule( 'smallzoom', 'geolocationcontrol', 'mousewheel', function() {
+	MQA.withModule( 'smallzoom', 'mousewheel', function() {
 	    
 	    map.addControl(
 		new MQA.SmallZoom(),
 		new MQA.MapCornerPlacement( MQA.MapCorner.TOP_LEFT, new MQA.Size( 5,5 ) )
 	    );
 	    
-	    // map.addControl(
-	    // 	new MQA.GeolocationControl(),
-	    // 	new MQA.MapCornerPlacement( MQA.MapCorner.TOP_RIGHT, new MQA.Size( 10,10 ) )
-	    // );
-
 	    custom_find_me( map );
 	    
 	    map.enableMouseWheelZoom();

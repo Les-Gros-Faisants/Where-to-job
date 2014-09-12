@@ -22,7 +22,6 @@ class LocationController extends BaseController {
 	{
 		$view = View::make('location.createOrUpdate');
 		return $view;
-
 	}
 
 
@@ -39,7 +38,7 @@ class LocationController extends BaseController {
 		$newLocation->update($inputs);
 
 		$lcoation_id = $newLocation->id;
-		$location = User::where('id', '=', $location_id)->get();
+		$location = Location::where('id', '=', $location_id)->get();
 		return Redirect::to('/location/' . $location_id . '/show');
 	}
 

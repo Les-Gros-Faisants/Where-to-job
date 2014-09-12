@@ -11,9 +11,6 @@ $columns = Schema::getColumnListing('users');
 {{ Form::open(array('route' => 'user.store')) }}
 @endif
 
-
-
-
 <div class="ui error form segment">
 	<div class="three fields">
 		<div class="field">
@@ -73,7 +70,7 @@ $columns = Schema::getColumnListing('users');
 			@if (isset($user))
 			{{ Form::text('city', null, array('placeholder'=>$user[0]->city)) }}
 			@else
-			{{ Form::text('Cicityty', null, array('placeholder'=>'City')) }}
+			{{ Form::text('city', null, array('placeholder'=>'City')) }}
 			@endif
 		</div>
 		<div class="field">
@@ -95,7 +92,7 @@ $columns = Schema::getColumnListing('users');
 	</div>
 	<div class="field">
 		{{ Form::label('Photo', 'Photo') }}
-		{{ Form::file('Photo', $attributes = array()) }}
+		{{ Form::file('photo', $attributes = array()) }}
 	</div>
 	{{ Form::submit('Submit', array('class'=>'ui blue submit button')) }}
 </div>
