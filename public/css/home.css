@@ -13,20 +13,20 @@
 
 #results
 {
-  position: absolute;
-  left: 37%;
+  width: 40%;
+  padding: auto;
+  margin: auto;
 }
 
 .miniature
 {
-  margin-bottom: 1%;
   display: none;
 }
 
-.min_image
+.miniature img
 {
-  width: 128px;
-  height: 128px;
+  width: 64px;
+  height: 64px;
 }
 
 .min_location_name

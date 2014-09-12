@@ -11,7 +11,7 @@ $( document ).ready(function()
   {
     if (!$moved)
     {
-      $('#searchbar').animate({ marginLeft: "-=27%" }, "slow",
+      $('#searchbar').animate({ marginLeft: "-=27%", width: "-=10%" }, "slow",
       function() {
           $.post(
             $( this ).prop( 'action' ),
@@ -30,24 +30,21 @@ $( document ).ready(function()
                   image_name = images_path + item["photos"];
                 var miniatureId = "#min" + i;
                 var miniature = "<div id=min" + i + " class=\"ui segment miniature\"> \
-                                  <div class=\"ui grid middle aligned\"> \
-                                    <div class=\"row\"> \
-                                      <div class=\"six wide column segment\"> \
-                                        <div class=\"ui item\"> \
-                                          <img class=\"rounded ui image min_image\" src=\"" + image_name + "\"> \
+                                  <div class=\"ui grid\"> \
+                                      <div class=\"six wide column\"> \
+                                        <div class=\"ui segment img_container\" style=\"height: 140px;\"> \
+                                          <img class=\"min_image\" src=\"" + image_name + "\"> \
                                         </div> \
                                       </div> \
-                                      <div class=\"six wide column\"> \
-                                        <div class=\"ui segment\" style=\"tex-align: left;\"> \
+                                      <div class=\"ten wide column\"> \
+                                        <div class=\"ui segment\" style=\"text-align: left;height: 140px;\"> \
                                           <p class=\"min_location_name\">" + item['name'] + "</p> \
                                           <p class=\"min_location_address\"><i class=\"map icon\"></i>" + item['location'] + "</p> \
                                           <p class=\"min_location_city\"><i class=\"map marker icon\"></i>" + item['city'] + "</p> \
                                         </div> \
                                       </div> \
-                                    </div> \
                                   </div> \
                                  </div>";
-
 
                 $(miniature).appendTo('#results');
                 $(miniatureId).fadeIn( "slow", function() {

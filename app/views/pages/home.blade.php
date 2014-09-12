@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div id="results" class="ui grid">
+    <div id="results">
     </div>
   </div>
   <script></script>
