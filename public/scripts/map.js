@@ -1,9 +1,18 @@
 var g_pois = [];
 
 function addLocation( event ) {
-    var lat = event.ll.getLatitude();
-    var lng = event.ll.getLongitude();
-    console.log( lat+' '+lng );
+  var lat = event.ll.getLatitude();
+  var lon = event.ll.getLongitude();
+  console.log( lat + ' ' + lon );
+  var url = 'http://open.mapquestapi.com/nominatim/v1/reverse.php?format=json&json_callback=addLocated&lat=' + lat + '&lon=' + lon;
+  var script = document.createElement( 'script' );
+  script.type = 'text/javascript';
+  script.src = url;
+  document.body.appendChild( script );
+}
+
+function addLocated( response ) {
+  console.log(response);
 }
 
 function custom_find_me( map ) {
@@ -72,7 +81,7 @@ function handle_search( json_array ) {
 }
 
 function load_map( string_or_array ) {
-    
+
     if ( string_or_array instanceof Array ) {
 	handle_search( string_or_array );
     }
