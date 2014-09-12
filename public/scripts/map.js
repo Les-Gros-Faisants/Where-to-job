@@ -28,11 +28,23 @@ function custom_find_me( map ) {
     }
 }
 
+function add_pois( json ) {
+    var object = JSON.parse( json );
+
+    // generate poi's and associate an id ie: 
+    // var machin = new MQA.Poi();
+    // machin.Key = 'key';
+    // this way we can delete the shit when we're done
+    // map.removeShape( map.getByKey( 'key' ) );
+
+    
+}
+
 function load_map( string ) {
     
     MQA.EventUtil.observe( window, 'load', function() {
 	
-	$( '#map' ).css( 'width', $( '#map_div' ).width() - 30);
+	$( '#map' ).css( 'width', $( '#map_div' ).width() - 22l );
 	window.onresize = function( event ) {
     	    var resize_map = new MQA.Size (
     		$( '#map_div' ).width(),
