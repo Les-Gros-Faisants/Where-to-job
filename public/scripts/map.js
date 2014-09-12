@@ -61,7 +61,7 @@ function handle_search( json_array ) {
     var locations = '';
 
     for ( var i = 0; i < json_array.length; i++ ) {
-	locations = locations + '&location=' + json_array[i].location + ' ' + json_array[i].city;
+	locations = locations + '&location=' + json_array[i].location + ' ' + json_array[i].city + ' france';
     }
 
     console.log( locations );
