@@ -1,6 +1,45 @@
 #searchbar
 {
+  left: 50%;
+  position: absolute;
+  width: 20%;
+}
+
+#searchbar_sub
+{
+  position: relative;
+  left: -50%;
+}
+
+#results
+{
+  width: 50%;
   padding: auto;
   margin: auto;
-  width: 30%;
+}
+
+.miniature
+{
+  display: none;
+}
+
+.miniature img
+{
+  width: 64px;
+  height: 64px;
+}
+
+.min_location_name
+{
+  font-size: 23px;
+}
+
+.min_location_address
+{
+  font-size: 19px;
+}
+
+.min_location_city
+{
+  font-size: 17px;
 }

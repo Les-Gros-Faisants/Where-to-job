@@ -1,7 +1,12 @@
+#map_div
+{
+  margin: 0 auto;
+}
+
 #map
 {
-  overflow:hidden;
-  width:750px;
+  overflow: hidden;
   height:400px;
-  position:relative;
+  position: relative;
+  width: 400px;
 }
