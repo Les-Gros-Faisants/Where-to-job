@@ -184,10 +184,11 @@ class UserController extends \BaseController {
 				$message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
 				echo $message. "<br/>";
 				dd($result);
+				return Redirect::to((string)$url);
 			}
 			else {
 				$url = $fb->getAuthorizationUri();
-				return Redirect::to( (string)$url );
+				return Redirect::to((string)$url);
 			}
 
 		}

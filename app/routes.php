@@ -45,7 +45,7 @@ Route::post('/location/store',['as' => 'location.store', 'uses' => 'LocationCont
 */
 
 // route to process the form
-Route::get('/user/loginFB', array('uses' => 'UserController@Login'));
+Route::get('/user/loginFB', array('uses' => 'UserController@LoginFB'));
 Route::post('/user/login', array('uses' => 'UserController@Login'));
 Route::get('/user/logout', array('uses' => 'UserController@Logout'));
 
