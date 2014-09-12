@@ -6,10 +6,10 @@
     </div>
     <div id="searchbar" class="ui item">
       <div class="ui fluid action input">
-        {{ Form::model(null, array('route' => array('location.search'))) }}
+        {{ Form::model(null, array('route' => array('location.search'), 'id' => 'search_form')) }}
 
         <div class="ui fluid left icon input">
-          {{ Form::text('city', null, array('placeholder'=>'City...')) }}
+          {{ Form::text('city', null, array('placeholder'=>'City...', 'id' => 'city_field')) }}
           <i class="globe icon"></i>
         </div>
         <br/>
@@ -35,4 +35,5 @@
       @endif
     </div>
   </div>
+  <script></script>
 @stop
