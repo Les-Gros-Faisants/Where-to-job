@@ -113,7 +113,7 @@ function load_map( string_or_array ) {
 		lng: position.coords.longitude
 	    });
 	    map.addShape(user);
-	    document.getElementById( 'map_loader' ).style.visibility = hidden;
+	    document.getElementById( 'map_loader' ).style.visibility = 'hidden';
 	});
 
 	MQA.withModule( 'smallzoom', 'mousewheel', function() {
