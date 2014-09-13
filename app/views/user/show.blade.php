@@ -2,56 +2,49 @@
 @section('content')
 	<div class="padding">
   	<h1>User information</h1>
+  	<div class="ui error form segment">
   	{{ Form::open() }}
 	<div class="ui horizontal label">
-		{{ Form::label('name', 'Name')}}
+		First name
   	</div>
-	{{ Form::label('name', 'Freddy') }}
+	{{ Form::label('name', $user[0]->firstname) }}
   	<br/>
   	<br/>
 	<div class="ui horizontal label">
-	  	{{ Form::label('surname', 'Surname')}}
+		Last name
 	</div>
-	{{ Form::label('surname', 'Mercury')}}
+	{{ Form::label('surname', $user[0]->lastname)}}
   	<br/>
   	<br/>
 	<div class="ui horizontal label">
-		{{ Form::label('email', 'E-mail') }}
+		E-mail
 	</div>
-  	{{ Form::label('email', 'freddy.mercury@email.com')}}
-  	<br/>
-  	<br/>
-	<div class="ui horizontal label">
-		{{ Form::label('phone', 'Phone')}}
-	</div>
-  	{{ Form::label('phone', '06.13.37.42.01') }}
+  	{{ Form::label('email', $user[0]->email)}}
   	<br/>
  	<br/>
 	<div class="ui horizontal label">
-	  	{{ Form::label('job', 'Job')}}
+	  	Job
 	</div>
-  	{{ Form::label('job', 'Singer') }}
+  	{{ Form::label('job', $user[0]->job) }}
   	<br/>
 	<br/>
 	<div class="ui horizontal label">
-		{{ Form::label('city', 'City')}}
+		City
 	</div>
-  	{{ Form::label('city', 'New York') }}
+  	{{ Form::label('city', $user[0]->city) }}
   	<br/>
  	<br/>
 	<div class="ui horizontal label">
-		{{ Form::label('adress', 'Adress')}}
+		Adress
 	</div>
-  	{{ Form::label('adress', '12 rue du quai') }}
+  	{{ Form::label('address', $user[0]->address) }}
   	<br/>
 	<br/>
 	<div class="ui horizontal label">
-		{{ Form::label('infos', 'Infos')}}
+		Infos
 	</div>
-  	{{ Form::label('infos', 'Tu veux savoir hein ! eh bah tu sauras rien ! p\'tite pute !') }}
+  	{{ Form::label('infos', $user[0]->infos) }}
   	{{ Form::close() }}
-  	@foreach($user as $var)
-  	{{ $var }}
-  	@endforeach
+  	</div>
   	</div>
 @stop
