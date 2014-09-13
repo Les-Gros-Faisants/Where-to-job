@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+<div class="padding">
 EDIT /  USER
 <?php
 // get all columns from user table
@@ -10,7 +11,6 @@ $columns = Schema::getColumnListing('users');
 @else
 {{ Form::open(array('route' => 'user.store')) }}
 @endif
-
 <div class="ui error form segment">
 	<div class="three fields">
 		<div class="field">
@@ -95,6 +95,7 @@ $columns = Schema::getColumnListing('users');
 		{{ Form::file('photo', $attributes = array()) }}
 	</div>
 	{{ Form::submit('Submit', array('class'=>'ui blue submit button')) }}
+</div>
 </div>
 
 {{ Form::close() }}

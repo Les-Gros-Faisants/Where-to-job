@@ -7,6 +7,7 @@
 {{ HTML::style('css/map.css') }}
 {{ HTML::style('css/main.css') }}
 {{ HTML::style('css/header.css') }}
+{{ HTML::style('css/padding.css') }}
 {{ HTML::style('http://fonts.googleapis.com/css?family=Rambla|Dosis|Poiret+One|Philosopher|Lobster|Exo|Indie+Flower|Jura') }}
 {{ HTML::style('http://cdn.bootcss.com/semantic-ui/0.16.1/css/semantic.css') }}
 
