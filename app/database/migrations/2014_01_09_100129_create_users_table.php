@@ -24,6 +24,9 @@ class CreateUsersTable extends Migration {
 				$table->string('city');
 				$table->string('job');
 				$table->longtext('infos');
+                $table->string('facebook_id');
+                $table->boolean('facebook_connection');
+                $table->boolean('right');
 				$table->rememberToken();
 				});
 	}

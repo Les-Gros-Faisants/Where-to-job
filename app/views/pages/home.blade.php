@@ -12,6 +12,7 @@
       <i class="search icon"></i>
     </div>
 
+    <div id="search_wrapper">
     <div id="searchbar">
       <div id="searchbar_sub" class="ui item">
         <div class="ui fluid action input">
@@ -31,6 +32,7 @@
           {{ Form::close() }}
         </div>
       </div>
+    </div>
     </div>
     <div id="results">
     </div>

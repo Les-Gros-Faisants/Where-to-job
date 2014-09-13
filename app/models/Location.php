@@ -21,6 +21,9 @@ class Location extends Eloquent
 			$this->{$key} = $value;
 		return $this->save();
 	}
+	public function user() {
+		return $this->belongsTo('User');
+	}
 }
 
 ?>

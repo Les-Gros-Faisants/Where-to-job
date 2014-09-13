@@ -1,4 +1,6 @@
 var g_pois = [];
+var g_name = [];
+var user_poi;
 
 function addLocation( event ) {
   var lat = event.ll.getLatitude();
@@ -48,14 +50,34 @@ function add_pois( response ) {
 
     console.log( response );
     for ( var i = 0; i < response.results.length; i++ ) {
-	console.log( response.results[i].locations[0].displayLatLng.lat );
-
+	
 	g_pois[i] = new MQA.Poi({
 	    lat: response.results[i].locations[0].displayLatLng.lat,
 	    lng: response.results[i].locations[0].displayLatLng.lng
 	});
+	
+	var html_infocontent = 
+	    "<div id='info_window_pois" + i + "' style=\"width='20em';\">"
+	    + "<h3 id='zone_name'>" 
+	    + ( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] )
+	    + "</h3>"
+	    + "<button id='zone_find_path" + i + "'>Tracer la route</button>"
+	    + "</div>";
+
 	g_pois[i].key = i;
+	console.log( response.results[i].locations[0].street );
+	g_pois[i].setRolloverContent( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] );
+	g_pois[i].setInfoContentHTML( html_infocontent );
 	map.addShape( g_pois[i] );
+
+	console.log( 'zone_find_path' + i );
+	var button = document.getElementById( 'zone_find_path' + i ).onlick = function() {
+	    map.addRoute({
+		request: {
+		    locations:[ user_poi, g_pois[i] ]
+		}
+	    });
+	}
     }
 }
 
@@ -69,11 +91,10 @@ function handle_search( json_array ) {
 
     for ( var i = 0; i < json_array.length; i++ ) {
 	locations = locations + '&location=' + json_array[i].location + ' ' + json_array[i].city + ' france';
+	g_name[i] = json_array[i].name;
     }
 
-    console.log( locations );
     var new_url = url.replace( 'LOCATION_HERE', locations );
-    console.log( new_url );
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = new_url;
@@ -107,13 +128,13 @@ function load_map( string_or_array ) {
 	window.map = new MQA.TileMap( option );
 
 	navigator.geolocation.getCurrentPosition( function( position ) {
-	    var user = new MQA.Poi({
+	    var user_poi = new MQA.Poi({
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	    });
 	    var custom_icon = new MQA.Icon( '../assets/images/MiniMenMap.png', 32, 52 );
-	    user.setIcon( custom_icon );
-	    user.setShadowOffset({
+	    user_poi.setIcon( custom_icon );
+	    user_poi.setShadowOffset({
 		x: 10,
 		y: -25
 	    });
@@ -121,18 +142,16 @@ function load_map( string_or_array ) {
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	    });
-	    map.addShape(user);
+	    map.addShape(user_poi);
 	    document.getElementById( 'map_loader' ).style.visibility = 'hidden';
 	});
 
-	MQA.withModule( 'smallzoom', 'mousewheel', function() {
+	MQA.withModule( 'smallzoom', 'mousewheel', 'new-route', function() {
 
 	    map.addControl(
 		new MQA.SmallZoom(),
 		new MQA.MapCornerPlacement( MQA.MapCorner.TOP_LEFT, new MQA.Size( 5,5 ) )
 	    );
-
-	    custom_find_me( map );
 
 	    map.enableMouseWheelZoom();
 	});
@@ -140,6 +159,6 @@ function load_map( string_or_array ) {
 	if ( string_or_array === 'nothing' ) {
 	    MQA.EventManager.addListener(window.map, 'click', addLocation);
 	}
-
+	custom_find_me( map );
     });
 }
