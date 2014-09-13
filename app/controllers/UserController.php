@@ -174,6 +174,24 @@ class UserController extends \BaseController {
         }
     }
 
+    /**
+     * Store a facebook user
+     *
+     * @var user infos
+     */
+    public function storeFB($infos)
+    {
+        $newUser = new User;
+        $newUser->password = Hash::make($infos['id']);
+        $newUser->firstname = $infos['first_name'];
+        $newUser->lastname = $infos['last_name'];
+        $newUser->save();
+        $user_id = $newUser->id;
+        $user = User::where('id', '=', $user_id)->get();
+        //return Redirect::to('/user/' . $user_id . '/show');
+    }
+
+    
     public function loginFB() {
         $code = Input::get( 'code' );
         $fb = OAuth::consumer( 'Facebook' );
@@ -181,10 +199,21 @@ class UserController extends \BaseController {
         if ( !empty( $code ) ) {
             $token = $fb->requestAccessToken( $code );
             $result = json_decode( $fb->request( '/me' ), true );
-            $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
+            $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['email'];
             echo $message. "<br/>";
-            dd($result);
-            return Redirect::to((string)$url);
+            if (!Auth::attempt(array('email' => $result['email'], 'password' => $result['id']), true))
+            {
+                $newUser = new User;
+                $newUser->password = Hash::make($result['id']);
+                $newUser->firstname = $result['first_name'];
+                $newUser->lastname = $result['last_name'];
+                $newUser->email = $result['email'];
+                $newUser->save();
+                Auth::attempt(array('email' => $result['email'], 'password' => $result['id']), true);               
+                return Redirect::to('/');
+            }
+            else
+                return Redirect::to('/');
         }
         else {
             $url = $fb->getAuthorizationUri();
