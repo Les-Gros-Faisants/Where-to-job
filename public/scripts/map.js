@@ -14,7 +14,9 @@ function addLocation( event ) {
 }
 
 function addLocated( response ) {
-  console.log(response);
+//  console.log(response);
+  splitAddress = response.display_name.split(",");
+//  console.log(splitAddress);
 }
 
 function custom_find_me( map ) {
@@ -63,15 +65,15 @@ function add_pois( response ) {
 
     console.log( response );
     for ( var i = 0; i < response.results.length; i++ ) {
-	
+
 	g_pois[i] = new MQA.Poi({
 	    lat: response.results[i].locations[0].displayLatLng.lat,
 	    lng: response.results[i].locations[0].displayLatLng.lng
 	});
-	
-	var html_infocontent = 
+
+	var html_infocontent =
 	    "<div id='info_window_pois" + i + "' style=\"width='20em';\">"
-	    + "<h3 id='zone_name'>" 
+	    + "<h3 id='zone_name'>"
 	    + ( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] )
 	    + "</h3>"
 	    + "<button id='zone_find_path" + i + "' onclick=\"get_path( " 
@@ -83,7 +85,7 @@ function add_pois( response ) {
 	    + "</div>";
 
 	//console.log( html_infocontent );
-	
+
 	g_pois[i].key = i;
 	g_pois[i].setRolloverContent( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] );
 	g_pois[i].setInfoContentHTML( html_infocontent );
