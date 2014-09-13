@@ -39,6 +39,12 @@ function add_pois( response ) {
 
     console.log( response );
     for ( var i = 0; i < response.results.length; i++ ) {
+	var html_infocontent = 
+	    "<div id='info_window_pois" + i + " style=\"width='20em';\">"
+	    + "<h3 id='zone_name'>nom de l'endroit</h3>"
+	    + "<button id='zone_find_path' onclick='get_path()'>Tracer la route</button>"
+	    + "</div>";
+
 	console.log( response.results[i].locations[0].displayLatLng.lat );
 
 	g_pois[i] = new MQA.Poi({
@@ -46,6 +52,7 @@ function add_pois( response ) {
 	    lng: response.results[i].locations[0].displayLatLng.lng
 	});
 	g_pois[i].key = i;
+	g_pois[i].setInfoContentHTML( html_infocontent );
 	map.addShape( g_pois[i] );
     }
 }
@@ -62,9 +69,7 @@ function handle_search( json_array ) {
 	locations = locations + '&location=' + json_array[i].location + ' ' + json_array[i].city + ' france';
     }
 
-    console.log( locations );
     var new_url = url.replace( 'LOCATION_HERE', locations );
-    console.log( new_url );
     var script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = new_url;
