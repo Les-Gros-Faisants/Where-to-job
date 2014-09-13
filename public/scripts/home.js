@@ -14,6 +14,8 @@ function doPost()
                                      </div>");
           return (false);
         }
+      else
+        $("#no_result").css("display", "none");
       var i = 0;
       var locationsJSONObjects = [];
       data.forEach(function(item) {
@@ -25,23 +27,21 @@ function doPost()
         var miniatureId = "#min" + i;
         var miniature = "<div id=min" + i + " class=\"ui segment miniature\"> \
                           <div class=\"ui grid\"> \
-                              <div class=\"six wide column\"> \
-                                <div class=\"ui segment img_container\" style=\"height: 140px;\"> \
+                              <div class=\"six wide column ui segment\"> \
                                   <img class=\"min_image\" src=\"" + image_name + "\"> \
-                                </div> \
                               </div> \
                               <div class=\"ten wide column\"> \
-                                <div class=\"ui segment\" style=\"text-align: left;height: 140px;\"> \
-                                  <p class=\"min_location_name\">" + item['name'] + "</p> \
-                                  <p class=\"min_location_address\"><i class=\"map icon\"></i>" + item['location'] + "</p> \
-                                  <p class=\"min_location_city\"><i class=\"map marker icon\"></i>" + item['city'] + "</p> \
-                                </div> \
+                                  <div class=\"inner\"> \
+                                    <span class=\"min_location_name\">" + item['name'] + "</span><br/> \
+                                    <span class=\"min_location_address\"><i class=\"map icon\"></i>" + item['location'] + "</span><br/> \
+                                    <span class=\"min_location_city\"><i class=\"map marker icon\"></i>" + item['city'] + "</span><br/> \
+                                  </div> \
                               </div> \
                           </div> \
                          </div>";
 
         $(miniature).appendTo('#results');
-        $(miniatureId).fadeIn( "slow", function() {
+        $(miniatureId).fadeIn( "fast", function() {
           // Finished fade in
           // Do stuff..
         });
@@ -63,7 +63,7 @@ $( document ).ready(function()
   {
     if (!$moved)
     {
-      $('#searchbar').animate({ marginLeft: "-=32%", width: "-=10%" }, "slow", doPost);
+      $('#searchbar').animate({ marginLeft: "-=32%", width: "10%" }, "fast", doPost);
       $moved = true;
     }
     else
