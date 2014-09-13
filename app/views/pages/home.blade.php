@@ -12,6 +12,7 @@
       <i class="search icon"></i>
     </div>
 
+    <div id="search_wrapper">
     <div id="searchbar">
       <div id="searchbar_sub" class="ui item">
         <div class="ui fluid action input">
@@ -23,7 +24,7 @@
           </div>
           <br/>
           <div class="ui fluid left icon input">
-            {{ Form::text('ambience', null, array('placeholder'=>'Ambience...', 'id' => 'ambience_field', 'disabled' => 'disabled')) }}
+            {{ Form::text('ambience', null, array('placeholder'=>'Ambience...', 'id' => 'ambience_field')) }}
             <i class="glass icon"></i>
           </div>
           <br/>
@@ -31,6 +32,7 @@
           {{ Form::close() }}
         </div>
       </div>
+    </div>
     </div>
     <div id="results">
     </div>
