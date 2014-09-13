@@ -63,25 +63,21 @@ function add_pois( response ) {
 	    + "</h3>"
 	    + "<button id='zone_find_path" + i + "'>Tracer la route</button>"
 	    + "</div>"
-	    + "<script> document.geElementById( 'zone_find_path" + i + "' ).onclick( function() {"
-	    + "map.addRoute({ request: { locations: [user_poi, g_pois[i] ] }});});";
+	    + "<script>	$( '#info_window_pois' +i ).find( 'button' ).click(function() {"
+	    + "console.log( 'clicked' );"
+	    + "map.addRoute({"
+	    + "request: {"
+	    + "locations:[ user_poi, g_pois[i] ]"
+	    + "}"
+	    + "});"
+	    + "});</script>";
 
-	console.log( html_infocontent );
-
+	//console.log( html_infocontent );
+	
 	g_pois[i].key = i;
 	g_pois[i].setRolloverContent( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] );
 	g_pois[i].setInfoContentHTML( html_infocontent );
 	map.addShape( g_pois[i] );
-
-//	console.log( 'zone_find_path' + i );
-	// $( '#zone_find_path' + i ).click( function() {
-	//     console.log( 'clicked' );
-	//     map.addRoute({
-	// 	request: {
-	// 	    locations:[ user_poi, g_pois[i] ]
-	// 	}
-	//     });
-	// });
     }
 }
 
