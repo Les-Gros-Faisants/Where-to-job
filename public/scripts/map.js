@@ -41,6 +41,19 @@ function custom_find_me( map ) {
     }
 }
 
+function get_path( user_lat, user_lng, dest_lat, dest_lng ) {
+    console.log( 'coords: user =' + user_lat + '/' + user_lng + 'dest= ' + dest_lat + '/' + dest_lng );
+
+    map.addRoute({
+	request: {
+	    locations: [
+		{ latLng: { lat: user_lat, lng: user_lng }},
+		{ latLng: { lat: dest_lat, lng: dest_lng }}
+	    ]
+	}
+    });
+}
+
 function add_pois( response ) {
     // generate poi's and associate an id
     // var machin = new MQA.Poi();
@@ -61,16 +74,13 @@ function add_pois( response ) {
 	    + "<h3 id='zone_name'>" 
 	    + ( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] )
 	    + "</h3>"
-	    + "<button id='zone_find_path" + i + "'>Tracer la route</button>"
-	    + "</div>"
-	    + "<script>	$( '#info_window_pois' +i ).find( 'button' ).click(function() {"
-	    + "console.log( 'clicked' );"
-	    + "map.addRoute({"
-	    + "request: {"
-	    + "locations:[ user_poi, g_pois[i] ]"
-	    + "}"
-	    + "});"
-	    + "});</script>";
+	    + "<button id='zone_find_path" + i + "' onclick=\"get_path( " 
+	    + user_poi.latLng.lat + ',' 
+	    + user_poi.latLng.lng + ',' 
+	    + g_pois[i].latLng.lat + ',' 
+	    + g_pois[i].latLng.lng
+	    + ")\">Tracer la route</button>"
+	    + "</div>";
 
 	//console.log( html_infocontent );
 	
@@ -128,7 +138,7 @@ function load_map( string_or_array ) {
 	window.map = new MQA.TileMap( option );
 
 	navigator.geolocation.getCurrentPosition( function( position ) {
-	    var user_poi = new MQA.Poi({
+	    user_poi = new MQA.Poi({
 		lat: position.coords.latitude,
 		lng: position.coords.longitude
 	    });
