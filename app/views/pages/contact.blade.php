@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('content')
+<div class="padding">
 	<h1>Contact us</h1>
 	{{ Form::open(array('url' => 'contact')) }}
 	<div class="ui fluid action input">
@@ -33,4 +34,5 @@
 	<br/>
 	{{ Form::button('send', array('type' => 'submit', 'class' => 'ui blue submit button')) }}
 	{{ Form::close() }}
+</div>
 @stop
