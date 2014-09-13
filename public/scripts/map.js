@@ -1,4 +1,5 @@
 var g_pois = [];
+var g_name = [];
 
 function addLocation( event ) {
   var lat = event.ll.getLatitude();
@@ -50,17 +51,19 @@ function add_pois( response ) {
     for ( var i = 0; i < response.results.length; i++ ) {
 	var html_infocontent = 
 	    "<div id='info_window_pois" + i + " style=\"width='20em';\">"
-	    + "<h3 id='zone_name'>nom de l'endroit</h3>"
+	    + "<h3 id='zone_name'>" 
+	    + ( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] )
+	    + "</h3>"
 	    + "<button id='zone_find_path' onclick='get_path()'>Tracer la route</button>"
 	    + "</div>";
-
-	console.log( response.results[i].locations[0].displayLatLng.lat );
 
 	g_pois[i] = new MQA.Poi({
 	    lat: response.results[i].locations[0].displayLatLng.lat,
 	    lng: response.results[i].locations[0].displayLatLng.lng
 	});
 	g_pois[i].key = i;
+	console.log( response.results[i].locations[0].street );
+	g_pois[i].setRolloverContent( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] );
 	g_pois[i].setInfoContentHTML( html_infocontent );
 	map.addShape( g_pois[i] );
     }
@@ -76,6 +79,7 @@ function handle_search( json_array ) {
 
     for ( var i = 0; i < json_array.length; i++ ) {
 	locations = locations + '&location=' + json_array[i].location + ' ' + json_array[i].city + ' france';
+	g_name[i] = json_array[i].name;
     }
 
     var new_url = url.replace( 'LOCATION_HERE', locations );
