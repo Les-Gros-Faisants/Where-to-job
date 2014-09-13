@@ -62,22 +62,26 @@ function add_pois( response ) {
 	    + ( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] )
 	    + "</h3>"
 	    + "<button id='zone_find_path" + i + "'>Tracer la route</button>"
-	    + "</div>";
+	    + "</div>"
+	    + "<script> document.geElementById( 'zone_find_path" + i + "' ).onclick( function() {"
+	    + "map.addRoute({ request: { locations: [user_poi, g_pois[i] ] }});});";
+
+	console.log( html_infocontent );
 
 	g_pois[i].key = i;
-	console.log( response.results[i].locations[0].street );
 	g_pois[i].setRolloverContent( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] );
 	g_pois[i].setInfoContentHTML( html_infocontent );
 	map.addShape( g_pois[i] );
 
-	console.log( 'zone_find_path' + i );
-	var button = document.getElementById( 'zone_find_path' + i ).onlick = function() {
-	    map.addRoute({
-		request: {
-		    locations:[ user_poi, g_pois[i] ]
-		}
-	    });
-	}
+//	console.log( 'zone_find_path' + i );
+	// $( '#zone_find_path' + i ).click( function() {
+	//     console.log( 'clicked' );
+	//     map.addRoute({
+	// 	request: {
+	// 	    locations:[ user_poi, g_pois[i] ]
+	// 	}
+	//     });
+	// });
     }
 }
 
