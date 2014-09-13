@@ -45,7 +45,8 @@
 	</div>
   	{{ Form::label('infos', $user[0]->infos) }}
   	{{ Form::close() }}
-  	<a class="ui small green button right" href={{ "/user/".$user[0]->id."/edit" }}>Change informations</a>
+  	<a class="ui small green button atright" href={{ "/user/".$user[0]->id."/edit" }}>Change informations</a>
+  	<img src="{{asset('assets/images/locations_images/no_image.png')}}" class='rightcorner'></img>
   	</div>
   	</div>
-@stop
+  	@stop
