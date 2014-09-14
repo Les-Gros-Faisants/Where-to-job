@@ -46,12 +46,19 @@ function custom_find_me( map ) {
 function get_path( user_lat, user_lng, dest_lat, dest_lng ) {
     console.log( 'coords: user =' + user_lat + '/' + user_lng + 'dest= ' + dest_lat + '/' + dest_lng );
 
+    document.getElementById( 'map_loader' ).style.visibility = 'visible';
     map.addRoute({
 	request: {
 	    locations: [
 		{ latLng: { lat: user_lat, lng: user_lng }},
 		{ latLng: { lat: dest_lat, lng: dest_lng }}
-	    ]
+	    ],
+	    options: {
+		routeType: 'pedestrian',
+	    },
+	},
+	success: function() {
+	    document.getElementById( 'map_loader' ).style.visibility = 'hidden';
 	}
     });
 }
