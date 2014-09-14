@@ -130,6 +130,48 @@ class UserTableSeeder extends Seeder {
 			'user_id' => $mainuser2->id
 			));
 		
+		Location::create(array(
+			'location'  => '46 Rue Jean-Pierre Timbaud',
+			'city'  => 'Paris',
+			'name'  => 'Downtown Cafe',
+			'ambiance' => 'Mood',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '20 Rue Beautreillis',
+			'city'  => 'Paris',
+			'name'  => 'Sherry Butt',
+			'ambiance' => 'Smooth',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => "12 Rue du Château d'Eau",
+			'city'  => 'Paris',
+			'name'  => 'Le Coq',
+			'ambiance' => 'Rech',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => "8-12 Rue Boissy d'Anglas",
+			'city'  => 'Paris',
+			'name'  => 'Buddha-Bar',
+			'ambiance' => 'Mood',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '200 Quai de Valmy',
+			'city'  => 'Paris',
+			'name'  => 'Point Éphémère',
+			'ambiance' => 'Smooth',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '5 Rue Daunou',
+			'city'  => 'Paris',
+			'name'  => "Harry's New York Bar",
+			'ambiance' => 'Rech',
+			'user_id' => $mainuser2->id
+			));
 		$this->command->info('5 Locations crees');
 
 	}
