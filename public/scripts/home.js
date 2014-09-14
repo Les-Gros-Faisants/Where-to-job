@@ -37,6 +37,7 @@ function doPost()
                                     <span class=\"min_location_name\">" + item['name'] + "</span><br/> \
                                     <span class=\"min_location_address\"><i class=\"map icon\"></i>" + item['location'] + "</span><br/> \
                                     <span class=\"min_location_city\"><i class=\"map marker icon\"></i>" + item['city'] + "</span><br/> \
+                                    <span class=\"min_location_city\"><i class=\"coffee icon\"></i>" + item['ambiance'] + "</span><br/> \
                                   </div> \
                               </div> \
                           </div> \
