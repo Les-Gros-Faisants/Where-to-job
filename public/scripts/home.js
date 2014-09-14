@@ -68,6 +68,7 @@ $( document ).ready(function()
     }
     else
     {
+      $("#results").html("");
       doPost();
     }
 
