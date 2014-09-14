@@ -26,11 +26,7 @@
 
 .inner
 {
-  border: 1px solid black;
-  height: 120px;
-  display:box;
-  box-pack:center;
-  box-align:center;
+  line-height: 36px;
 }
 
 .miniature
@@ -49,6 +45,7 @@
 
 .min_location_name
 {
+  margin-left: 4%;
   font-size: 23px;
 }
 
