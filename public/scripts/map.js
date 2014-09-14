@@ -80,7 +80,6 @@ function add_pois( response ) {
     // this way we can delete the shit when we're done
     // map.removeShape( map.getByKey( 'key' ) );
 
-    console.log( response );
     for ( var i = 0; i < response.results.length; i++ ) {
 
 	g_pois[i] = new MQA.Poi({
@@ -101,9 +100,8 @@ function add_pois( response ) {
 	    + ")\">Tracer la route</button>"
 	    + "</div>";
 
-	//console.log( html_infocontent );
-
-	g_pois[i].key = i;
+	g_pois[i].key = i + 1;
+	console.log( 'g_pois[i].key = ' + g_pois[i].key );
 	g_pois[i].setRolloverContent( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] );
 	g_pois[i].setInfoContentHTML( html_infocontent );
 	map.addShape( g_pois[i] );
@@ -113,8 +111,9 @@ function add_pois( response ) {
 function handle_search( json_array ) {
     //call to geocode webservice
 
-    for ( var i = 0; i < json_array.length; i++ ) {
-	map.removeShape( map.getByKey( i ) );
+    for ( var i = 0; i < g_pois.length; i++ ) {
+	console.log( 'i = ' + i ); 
+	map.removeShape( map.getByKey( i + 1 ) );
     }
     
     var url = 'http://www.mapquestapi.com/geocoding/v1/batch?key=Fmjtd%7Cluur2h612h%2Cra%3Do5-9wan50&callback=add_poisLOCATION_HERE&maxResults=1';
