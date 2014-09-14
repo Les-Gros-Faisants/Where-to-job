@@ -113,6 +113,10 @@ function add_pois( response ) {
 function handle_search( json_array ) {
     //call to geocode webservice
 
+    for ( var i = 0; i < json_array.length; i++ ) {
+	map.removeShape( map.getByKey( i ) );
+    }
+    
     var url = 'http://www.mapquestapi.com/geocoding/v1/batch?key=Fmjtd%7Cluur2h612h%2Cra%3Do5-9wan50&callback=add_poisLOCATION_HERE&maxResults=1';
     // location format = &location=addr&location=addr etc...
     // ie: &location=9 rue adoplhe seyboth strasbourg france&location=4 rue du dome strasbourg france...
