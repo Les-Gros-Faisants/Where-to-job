@@ -16,7 +16,17 @@ function addLocation( event ) {
 function addLocated( response ) {
 //  console.log(response);
   splitAddress = response.display_name.split(",");
-//  console.log(splitAddress);
+  if (locationInfo = document.getElementById("locationInfo")) {
+    locationInfo.innerHTML = "";
+  }
+  else {
+    locationInfo = document.createElement("div");
+    locationInfo.id = "locationInfo";
+    locationInfo.style.marginTop = "10px";
+    $(locationInfo).appendTo("#map_div");
+  }
+  locationInfo.innerHTML = response.display_name + "<br />Is this the location you want to add ?"
+  //  console.log(splitAddress);
 }
 
 function custom_find_me( map ) {
@@ -83,10 +93,10 @@ function add_pois( response ) {
 	    + "<h3 id='zone_name'>"
 	    + ( g_name[i] === "" ? response.results[i].locations[0].street : g_name[i] )
 	    + "</h3>"
-	    + "<button id='zone_find_path" + i + "' onclick=\"get_path( " 
-	    + user_poi.latLng.lat + ',' 
-	    + user_poi.latLng.lng + ',' 
-	    + g_pois[i].latLng.lat + ',' 
+	    + "<button id='zone_find_path" + i + "' onclick=\"get_path( "
+	    + user_poi.latLng.lat + ','
+	    + user_poi.latLng.lng + ','
+	    + g_pois[i].latLng.lat + ','
 	    + g_pois[i].latLng.lng
 	    + ")\">Tracer la route</button>"
 	    + "</div>";
