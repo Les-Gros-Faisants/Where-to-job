@@ -78,6 +78,58 @@ class UserTableSeeder extends Seeder {
 			'ambiance' => 'Sombre',
 			'user_id' => $mainuser2->id
 			));
+
+		Location::create(array(
+			'location'  => '26 Rue de la Justice',
+			'city'  => 'Mulhouse',
+			'name'  => 'La Parenthèse',
+			'ambiance' => 'Sombre',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '10 Passage Teutonique',
+			'city'  => 'Mulhouse',
+			'name'  => 'La Taverne des Chevaliers Teutoniques',
+			'ambiance' => 'Chevalersque',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '18 Passage des Augustins',
+			'city'  => 'Mulhouse',
+			'name'  => 'Salsa Café',
+			'ambiance' => 'Moche',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '2 Avenue de Lutterbach',
+			'city'  => 'Mulhouse',
+			'name'  => 'ZEN',
+			'ambiance' => 'Zen',
+			'user_id' => $mainuser2->id
+			));
+
+		Location::create(array(
+			'location'  => '230 5th Ave',
+			'city'  => 'New York',
+			'name'  => '230 Fifth',
+			'ambiance' => 'Mood',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '95 1st Ave',
+			'city'  => 'New York',
+			'name'  => 'Upstate',
+			'ambiance' => 'Smooth',
+			'user_id' => $mainuser2->id
+			));
+		Location::create(array(
+			'location'  => '115 Broadway',
+			'city'  => 'New York',
+			'name'  => 'Trinity Place bar & Restaurant',
+			'ambiance' => 'Rech',
+			'user_id' => $mainuser2->id
+			));
+		
 		$this->command->info('5 Locations crees');
 
 	}
