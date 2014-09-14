@@ -1,13 +1,15 @@
 @extends('layouts.default')
 @section('content')
-EDIT LOCATION
 <?php
 // get all columns from location table
  $columns = Schema::getColumnListing('locations');
 ?>
+<div style="max-width:60%; margin:auto;">
 @if (isset($location))
+EDIT LOCATION
 {{ Form::model($location, array('route' => array('location.update', $location[0]->id))) }}
 @else
+CREATE LOCATION
 {{ Form::open(array('route' => 'location.store')) }}
 @endif
 
@@ -54,7 +56,7 @@ EDIT LOCATION
 	</div>
 	{{ Form::submit('Submit', array('class'=>'ui blue submit button')) }}
 </div>
-
+    </div>
 {{ Form::close() }}
 
 @stop
