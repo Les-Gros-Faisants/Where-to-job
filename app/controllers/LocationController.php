@@ -44,18 +44,18 @@ class LocationController extends BaseController {
 
 	public function search()
 	{
-		$inputs = Input::except('_token');
-		$view = View::make('pages.home');
+		$input = Input::all();
+		$tmp = Location::query();
 
-		$view->city = $inputs['city'];
-		$tmp = Location::where('city', 'like', $inputs['city']);
-		if (isset($inputs['ambience']))
-			$tmp->where('ambiance', 'like', $inputs['ambience']);
-		if (isset($tmp) && !empty($tmp))
-	  	$last = $tmp->get();
-		else
-			$last = null;
-		return Response::json($last);
+		if (isset($input['city']) && is_string($input['city']) && !empty($input['city']))
+		{
+			$tmp->where('city', '=', $input['city']);
+		}
+		if (isset($input['ambience']) && is_string($input['ambience']) && !empty($input['ambience']))
+		{
+			$tmp->where('ambiance', '=', $input['ambience']);
+		}
+		return $tmp->get();
 	}
 
 

@@ -7,19 +7,19 @@
     ?>
     <div style="max-width: 60%; margin: auto;">
         @if (isset($user) && (Auth::user()->id == $user[0]->id))
-                EDIT  USER
+                EDIT  USER 
 {{ Form::model($user, array('route' => array('user.update', $user[0]->id))) }}
 @else
                 CREATE  USER
 {{ Form::open(array('route' => 'user.store')) }}
 @endif
-        <?php unset($user); ?>
         <div class="ui error form segment">
             <div class="three fields">
                 <div class="field">
                     {{ Form::label('First Name', 'First Name') }}
 			 @if (isset($user) && (Auth::user()->id == $user[0]->id))
 			{{ Form::text('firstname', null, array('placeholder'=>$user[0]->firstname)) }}
+                    
 			@else
 			{{ Form::text('firstname', null, array('placeholder'=>'First Name')) }}
 			@endif
@@ -62,7 +62,7 @@
             <div class="three fields">
                 <div class="field">
                     {{ Form::label('Address', 'Address') }}
-			@if (isset($user))
+			@if (isset($user) && (Auth::user()->id == $user[0]->id))
 			{{ Form::text('address', null, array('placeholder'=>$user[0]->address)) }}
 			@else
 			{{ Form::text('address', null, array('placeholder'=>'Address')) }}

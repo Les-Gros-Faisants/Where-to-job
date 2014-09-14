@@ -3,14 +3,15 @@ function doPost()
   $.post(
     $( this ).prop( 'action' ),
     {
-      "city": $( '#city_field' ).val()
+      "city" : $( '#city_field' ).val(),
+      "ambience" : $( '#ambience_field' ).val()
     },
     function(data)
     {
       if (data.length < 1)
         {
           $("#results").html("<div id=\"no_result\" class=\"ui segment\" style=\"padding: auto;margin: auto;text-align: center;\"> \
-                                      <h2>No results found for \"" + $("#city_field").val() + "\"</h2> \
+                                      <h2>No results found<h2> \
                                      </div>");
           return (false);
         }
@@ -18,6 +19,7 @@ function doPost()
         $("#no_result").css("display", "none");
       var i = 0;
       var locationsJSONObjects = [];
+      console.log(data);
       data.forEach(function(item) {
         var done = false;
         var images_path = "assets/images/locations_images/"
@@ -68,6 +70,7 @@ $( document ).ready(function()
     }
     else
     {
+      $("#results").html("");
       doPost();
     }
 
