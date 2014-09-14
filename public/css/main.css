@@ -1,3 +1,8 @@
+html
+{
+	overflow-y: scroll;
+}
+
 .ui.active.sidebardesign {
 	background: whitesmoke;
 	transition: margin-left 0s ease, margin-top 0s ease;

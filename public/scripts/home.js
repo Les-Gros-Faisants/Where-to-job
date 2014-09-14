@@ -9,10 +9,9 @@ function doPost()
     {
       if (data.length < 1)
         {
-          $("#results").html("<div id=\"no_result\" class=\"ui segment\" style=\"padding: auto;margin: auto;text-align: center;display: none;\"> \
+          $("#results").html("<div id=\"no_result\" class=\"ui segment\" style=\"padding: auto;margin: auto;text-align: center;\"> \
                                       <h2>No results found for \"" + $("#city_field").val() + "\"</h2> \
                                      </div>");
-          $("#no_result").fadeIn( "fast", function(){});
           return (false);
         }
       else
