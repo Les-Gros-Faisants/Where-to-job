@@ -106,6 +106,10 @@ function add_pois( response ) {
 	g_pois[i].setInfoContentHTML( html_infocontent );
 	map.addShape( g_pois[i] );
     }
+    map.setCenter ({
+	lat: g_pois[0].latLng.lat,
+	lng: g_pois[0].latLng.lng
+    });
 }
 
 function handle_search( json_array ) {
