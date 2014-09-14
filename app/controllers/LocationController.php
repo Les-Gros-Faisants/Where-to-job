@@ -48,9 +48,9 @@ class LocationController extends BaseController {
 		$view = View::make('pages.home');
 
 		$view->city = $inputs['city'];
-		$tmp = Location::where('city', 'like', $inputs['city']);
-		if (isset($inputs['ambience']))
-			$tmp->where('ambiance', 'like', $inputs['ambience']);
+		$tmp = Location::where('city', '=', $inputs['city']);
+		if (isset($inputs['ambience']) && !empty($inputs['ambience']))
+			$tmp->where('ambiance', '=', $inputs['ambience']);
 		if (isset($tmp) && !empty($tmp))
 	  	$last = $tmp->get();
 		else
